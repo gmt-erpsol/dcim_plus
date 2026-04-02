@@ -1,0 +1,181 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-26 15:37:55.090258",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "camera_name",
+  "zone",
+  "ip_address",
+  "status",
+  "column_break_lubg",
+  "camera_type",
+  "resolution",
+  "storage",
+  "last_checked",
+  "recording_days",
+  "section_break_tech",
+  "manufacturer",
+  "model",
+  "serial",
+  "firmware_version",
+  "installation_date"
+ ],
+ "fields": [
+  {
+   "default": "CAM-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Naming Series",
+   "options": "CAM-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "camera_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Camera Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "zone",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Zone",
+   "options": "Facility Zone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ip_address",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "IP Address",
+   "reqd": 1
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nOffline",
+   "reqd": 1
+  },
+  {
+   "fieldname": "camera_type",
+   "fieldtype": "Select",
+   "label": "Camera Type",
+   "options": "Fixed\nPTZ\nDome\nBullet"
+  },
+  {
+   "fieldname": "resolution",
+   "fieldtype": "Data",
+   "label": "Resolution"
+  },
+  {
+   "fieldname": "storage",
+   "fieldtype": "Data",
+   "label": "Storage"
+  },
+  {
+   "fieldname": "last_checked",
+   "fieldtype": "Datetime",
+   "label": "Last Checked"
+  },
+  {
+   "fieldname": "recording_days",
+   "fieldtype": "Int",
+   "label": "Recording Retention (Days)"
+  },
+  {
+   "fieldname": "section_break_tech",
+   "fieldtype": "Section Break",
+   "label": "Technical Details"
+  },
+  {
+   "fieldname": "manufacturer",
+   "fieldtype": "Data",
+   "label": "Manufacturer"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model"
+  },
+  {
+   "fieldname": "serial",
+   "fieldtype": "Data",
+   "label": "Serial"
+  },
+  {
+   "fieldname": "firmware_version",
+   "fieldtype": "Data",
+   "label": "Firmware Version"
+  },
+  {
+   "fieldname": "installation_date",
+   "fieldtype": "Date",
+   "label": "Installation Date"
+  },
+  {
+   "fieldname": "column_break_lubg",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-26 15:40:52.881248",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Surveillance Camera",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

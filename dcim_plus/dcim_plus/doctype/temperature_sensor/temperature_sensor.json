@@ -1,0 +1,152 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-26 15:07:21.859328",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "sensor_name",
+  "location_type",
+  "room",
+  "rack",
+  "temperature",
+  "column_break_aoxt",
+  "threshold",
+  "status",
+  "last_reading",
+  "manufacturer",
+  "serial"
+ ],
+ "fields": [
+  {
+   "default": "TS-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Naming Series",
+   "options": "TS-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sensor_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Sensor Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "location_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Location Type",
+   "options": "Room\nRack",
+   "reqd": 1
+  },
+  {
+   "fieldname": "room",
+   "fieldtype": "Link",
+   "label": "Room",
+   "options": "Room"
+  },
+  {
+   "fieldname": "rack",
+   "fieldtype": "Link",
+   "label": "Rack",
+   "options": "Rack"
+  },
+  {
+   "fieldname": "temperature",
+   "fieldtype": "Float",
+   "label": "Current Temperature (\u00b0C)"
+  },
+  {
+   "fieldname": "threshold",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Alert Threshold (\u00b0C)",
+   "reqd": 1
+  },
+  {
+   "default": "Normal",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Normal\nAlert",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_reading",
+   "fieldtype": "Datetime",
+   "label": "Last Reading"
+  },
+  {
+   "fieldname": "manufacturer",
+   "fieldtype": "Data",
+   "label": "Manufacturer"
+  },
+  {
+   "fieldname": "serial",
+   "fieldtype": "Data",
+   "label": "Serial"
+  },
+  {
+   "fieldname": "column_break_aoxt",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-26 15:19:48.148676",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Temperature Sensor",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,314 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-26 14:26:31.483796",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "asset_name",
+  "asset_type",
+  "rack",
+  "column_break_koyl",
+  "position_u",
+  "manufacturer",
+  "model",
+  "serial_number",
+  "column_break_dlej",
+  "ip_address",
+  "status",
+  "purchase_date",
+  "provisioning_section",
+  "pdu_port",
+  "vlan_id",
+  "provisioning_status",
+  "auto_provision",
+  "default_username",
+  "default_password",
+  "anomaly_section",
+  "anomaly_score",
+  "anomaly_level",
+  "anomaly_details",
+  "last_anomaly_check",
+  "power_baseline",
+  "temp_baseline",
+  "power_supply_section",
+  "power_supply_count",
+  "centric_ups",
+  "apc_ups",
+  "ups_phase",
+  "power_circuit",
+  "power_rating",
+  "height_u"
+ ],
+ "fields": [
+  {
+   "default": "ASSET-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Naming Series",
+   "options": "ASSET-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "asset_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Asset Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "asset_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Asset Type",
+   "options": "Server\nSwitch\nStorage\nRouter\nFirewall\nKVM\nSensor\nPatch Panel\nModem\nGateway\nController\nMonitor\nNetwork\nWAF\nPDU",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rack",
+   "fieldtype": "Link",
+   "label": "Rack",
+   "options": "Rack"
+  },
+  {
+   "fieldname": "position_u",
+   "fieldtype": "Int",
+   "label": "Position U"
+  },
+  {
+   "fieldname": "manufacturer",
+   "fieldtype": "Data",
+   "label": "Manufacturer"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model"
+  },
+  {
+   "fieldname": "serial_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Serial Number"
+  },
+  {
+   "fieldname": "ip_address",
+   "fieldtype": "Data",
+   "label": "IP Address"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nDown\nMaintenance",
+   "reqd": 1
+  },
+  {
+   "fieldname": "purchase_date",
+   "fieldtype": "Date",
+   "label": "Purchase Date"
+  },
+  {
+   "fieldname": "column_break_koyl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_dlej",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "provisioning_section",
+   "fieldtype": "Section Break",
+   "label": "Auto-Provisioning"
+  },
+  {
+   "fieldname": "pdu_port",
+   "fieldtype": "Data",
+   "label": "PDU Port",
+   "read_only": 1
+  },
+  {
+   "fieldname": "vlan_id",
+   "fieldtype": "Data",
+   "label": "VLAN ID",
+   "read_only": 1
+  },
+  {
+   "default": "Pending",
+   "fieldname": "provisioning_status",
+   "fieldtype": "Select",
+   "label": "Provisioning Status",
+   "options": "Pending\nProvisioning\nCompleted\nFailed"
+  },
+  {
+   "default": "1",
+   "fieldname": "auto_provision",
+   "fieldtype": "Check",
+   "label": "Auto-provision on Save"
+  },
+  {
+   "fieldname": "default_username",
+   "fieldtype": "Data",
+   "label": "Default Username",
+   "read_only": 1
+  },
+  {
+   "fieldname": "default_password",
+   "fieldtype": "Password",
+   "label": "Default Password",
+   "read_only": 1
+  },
+  {
+   "fieldname": "anomaly_section",
+   "fieldtype": "Section Break",
+   "label": "Anomaly Detection"
+  },
+  {
+   "fieldname": "anomaly_score",
+   "fieldtype": "Percent",
+   "label": "Anomaly Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "anomaly_level",
+   "fieldtype": "Select",
+   "label": "Anomaly Level",
+   "options": "Normal\nSuspicious\nWarning\nCritical",
+   "read_only": 1
+  },
+  {
+   "fieldname": "anomaly_details",
+   "fieldtype": "Text",
+   "label": "Anomaly Details",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_anomaly_check",
+   "fieldtype": "Datetime",
+   "label": "Last Anomaly Check",
+   "read_only": 1
+  },
+  {
+   "fieldname": "power_baseline",
+   "fieldtype": "Float",
+   "label": "Power Baseline (kW)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "temp_baseline",
+   "fieldtype": "Float",
+   "label": "Temperature Baseline (\u00b0C)",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "power_supply_section",
+   "fieldtype": "Section Break",
+   "label": "Power Supply & UPS Information"
+  },
+  {
+   "default": "1 PS",
+   "fieldname": "power_supply_count",
+   "fieldtype": "Select",
+   "label": "Number of Power Supplies",
+   "options": "1 PS\n2 PS\n3 PS\n4 PS\nRedundant\nHot-swap"
+  },
+  {
+   "description": "e.g., C-200-L2, C-198-L1",
+   "fieldname": "centric_ups",
+   "fieldtype": "Data",
+   "label": "Centric UPS (C)",
+   "placeholder": "Enter Centric UPS assignment"
+  },
+  {
+   "description": "e.g., A-198-L1, A-200-L2",
+   "fieldname": "apc_ups",
+   "fieldtype": "Data",
+   "label": "APC UPS (A)",
+   "placeholder": "Enter APC UPS assignment"
+  },
+  {
+   "depends_on": "eval:doc.apc_ups || doc.centric_ups",
+   "fieldname": "ups_phase",
+   "fieldtype": "Select",
+   "label": "UPS Phase",
+   "options": "L1\nL2\nL3\nSingle Phase"
+  },
+  {
+   "description": "e.g., Circuit A-01, PDU Port 1",
+   "fieldname": "power_circuit",
+   "fieldtype": "Data",
+   "label": "Power Circuit ID"
+  },
+  {
+   "description": "Maximum power consumption",
+   "fieldname": "power_rating",
+   "fieldtype": "Float",
+   "label": "Power Rating (Watts)"
+  },
+  {
+   "default": "1",
+   "description": "Number of U spaces this asset occupies",
+   "fieldname": "height_u",
+   "fieldtype": "Int",
+   "label": "Height (U)"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-30 21:16:06.903301",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "IT Asset",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

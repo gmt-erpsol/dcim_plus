@@ -1,0 +1,85 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-28 16:57:14.176143",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "asset",
+  "rfid_tag",
+  "movement_type",
+  "from_location",
+  "to_location",
+  "timestamp",
+  "performed_by",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "asset",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Asset",
+   "options": "IT Asset",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rfid_tag",
+   "fieldtype": "Link",
+   "label": "RFID Tag",
+   "options": "RFID Asset Tag"
+  },
+  {
+   "fieldname": "movement_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Movement Type",
+   "options": "Check In\nCheck Out\nRelocated\nMaintenance",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from_location",
+   "fieldtype": "Link",
+   "label": "From Location",
+   "options": "Room"
+  },
+  {
+   "fieldname": "to_location",
+   "fieldtype": "Link",
+   "label": "To Location",
+   "options": "Room"
+  },
+  {
+   "default": "Now",
+   "fieldname": "timestamp",
+   "fieldtype": "Datetime",
+   "label": "Timestamp"
+  },
+  {
+   "fieldname": "performed_by",
+   "fieldtype": "Link",
+   "label": "Performed By",
+   "options": "User"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-28 16:57:14.176143",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Asset Movement Log",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

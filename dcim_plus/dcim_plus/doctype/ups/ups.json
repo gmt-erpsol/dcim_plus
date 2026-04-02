@@ -1,0 +1,203 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-26 14:34:26.229075",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "ups_name",
+  "zone",
+  "make",
+  "model",
+  "capacity_kva",
+  "load_percentage",
+  "column_break_rrgc",
+  "battery_status",
+  "input_voltage",
+  "output_voltage",
+  "runtime",
+  "status",
+  "last_maintenance",
+  "snmp_section",
+  "snmp_host",
+  "snmp_community",
+  "snmp_port",
+  "ups_mib_type",
+  "last_snmp_poll"
+ ],
+ "fields": [
+  {
+   "default": "UPS-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Naming Series",
+   "options": "UPS-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ups_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "UPS Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "zone",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Zone",
+   "options": "Facility Zone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "capacity_kva",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Capacity KVA",
+   "reqd": 1
+  },
+  {
+   "fieldname": "load_percentage",
+   "fieldtype": "Float",
+   "label": "Load %"
+  },
+  {
+   "fieldname": "battery_status",
+   "fieldtype": "Select",
+   "label": "Battery Status",
+   "options": "Good\nWarning\nCritical"
+  },
+  {
+   "fieldname": "input_voltage",
+   "fieldtype": "Float",
+   "label": "Input Voltage"
+  },
+  {
+   "fieldname": "output_voltage",
+   "fieldtype": "Float",
+   "label": "Output Voltage"
+  },
+  {
+   "fieldname": "runtime",
+   "fieldtype": "Float",
+   "label": "Runtime (minutes)"
+  },
+  {
+   "default": "Normal",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Normal\nWarning\nCritical",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_maintenance",
+   "fieldtype": "Date",
+   "label": "Last Maintenance"
+  },
+  {
+   "fieldname": "column_break_rrgc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "make",
+   "fieldtype": "Data",
+   "label": "Make"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model"
+  },
+  {
+   "fieldname": "snmp_section",
+   "fieldtype": "Section Break",
+   "label": "\ud83c\udf10 SNMP Monitoring"
+  },
+  {
+   "fieldname": "snmp_host",
+   "fieldtype": "Data",
+   "label": "SNMP IP Address"
+  },
+  {
+   "default": "public",
+   "fieldname": "snmp_community",
+   "fieldtype": "Data",
+   "label": "SNMP Community"
+  },
+  {
+   "default": "161",
+   "fieldname": "snmp_port",
+   "fieldtype": "Int",
+   "label": "SNMP Port"
+  },
+  {
+   "fieldname": "ups_mib_type",
+   "fieldtype": "Select",
+   "label": "MIB Type",
+   "options": "PowerNet (APC)\nRFC1628 (Standard)\nIETF"
+  },
+  {
+   "fieldname": "last_snmp_poll",
+   "fieldtype": "Datetime",
+   "label": "Last SNMP Poll",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-02 20:29:33.715157",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "UPS",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

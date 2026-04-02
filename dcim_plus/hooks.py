@@ -4,7 +4,22 @@ app_publisher = "gemtad"
 app_description = "Data center Infrastructure Management Monitoring And control"
 app_email = "gamtadabala@gmail.com"
 app_license = "mit"
+# In dcim_plus/hooks.py
 
+# Add this to your hooks.py file
+
+# Custom login page
+login_page = "login"
+
+# Override website context
+website_context = {
+    "login_page": "login"
+}
+# API endpoints
+website_route_rules = [
+    {"from_route": "/api/method/dcim_plus.api.dr_api.save_dr_plan", 
+     "to_route": "/api/method/dcim_plus.api.dr_api.save_dr_plan"}
+]
 # Apps
 # ------------------
 

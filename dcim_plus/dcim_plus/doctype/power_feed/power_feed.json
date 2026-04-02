@@ -1,0 +1,161 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-26 14:45:48.012499",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "feed_name",
+  "source_type",
+  "source",
+  "target_type",
+  "column_break_wior",
+  "target",
+  "capacity",
+  "load",
+  "status",
+  "redundancy",
+  "column_break_ycej",
+  "description"
+ ],
+ "fields": [
+  {
+   "default": "PF-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Naming Series",
+   "options": "PF-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "feed_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Feed Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Source Type",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Source",
+   "options": "source_type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "target_type",
+   "fieldtype": "Link",
+   "label": "Target Type",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "target",
+   "fieldtype": "Dynamic Link",
+   "label": "Target",
+   "options": "target_type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "capacity",
+   "fieldtype": "Float",
+   "label": "Capacity (kW)"
+  },
+  {
+   "fieldname": "load",
+   "fieldtype": "Float",
+   "label": "Current Load (kW)"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nInactive",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "redundancy",
+   "fieldtype": "Check",
+   "label": "Redundancy (N+1)"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_wior",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ycej",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-26 14:47:38.337718",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Power Feed",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

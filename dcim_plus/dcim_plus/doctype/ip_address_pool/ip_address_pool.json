@@ -1,0 +1,118 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-28 12:45:22.057705",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "pool_name",
+  "asset_type",
+  "network",
+  "gateway",
+  "subnet_mask",
+  "vlan_id",
+  "dns_primary",
+  "dns_secondary",
+  "start_ip",
+  "end_ip",
+  "available_ips",
+  "used_ips",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "pool_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Pool Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "asset_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Asset Type",
+   "options": "Server\nSwitch\nStorage\nFirewall\nRouter\nLoad Balancer\nUPS\nPDU\nAll",
+   "reqd": 1
+  },
+  {
+   "fieldname": "network",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Network (CIDR)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gateway",
+   "fieldtype": "Data",
+   "label": "Gateway"
+  },
+  {
+   "fieldname": "subnet_mask",
+   "fieldtype": "Data",
+   "label": "Subnet Mask"
+  },
+  {
+   "fieldname": "vlan_id",
+   "fieldtype": "Data",
+   "label": "VLAN ID"
+  },
+  {
+   "fieldname": "dns_primary",
+   "fieldtype": "Data",
+   "label": "Primary DNS"
+  },
+  {
+   "fieldname": "dns_secondary",
+   "fieldtype": "Data",
+   "label": "Secondary DNS"
+  },
+  {
+   "fieldname": "start_ip",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Start IP",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_ip",
+   "fieldtype": "Data",
+   "label": "End IP",
+   "reqd": 1
+  },
+  {
+   "fieldname": "available_ips",
+   "fieldtype": "Table",
+   "label": "Available IPs",
+   "options": "IP Address Entry"
+  },
+  {
+   "fieldname": "used_ips",
+   "fieldtype": "Table",
+   "label": "Used IPs",
+   "options": "IP Address Entry"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nInactive"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-28 12:45:22.057705",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "IP Address Pool",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

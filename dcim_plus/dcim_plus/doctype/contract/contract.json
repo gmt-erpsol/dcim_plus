@@ -1,0 +1,156 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-26 14:15:03.581708",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "contract_id",
+  "vendor",
+  "start_date",
+  "end_date",
+  "column_break_qjvr",
+  "sla",
+  "value",
+  "status",
+  "renewal_date",
+  "column_break_qrsb",
+  "description",
+  "document"
+ ],
+ "fields": [
+  {
+   "default": "CON-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Naming Series",
+   "options": "CON-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contract_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Contract ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vendor",
+   "options": "Vendor",
+   "reqd": 1
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sla",
+   "fieldtype": "Data",
+   "label": "SLA"
+  },
+  {
+   "fieldname": "value",
+   "fieldtype": "Currency",
+   "label": "Value"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nExpired",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "renewal_date",
+   "fieldtype": "Date",
+   "label": "Renewal Date"
+  },
+  {
+   "fieldname": "document",
+   "fieldtype": "Attach",
+   "label": "Document"
+  },
+  {
+   "fieldname": "column_break_qjvr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qrsb",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-26 14:21:15.648399",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Contract",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

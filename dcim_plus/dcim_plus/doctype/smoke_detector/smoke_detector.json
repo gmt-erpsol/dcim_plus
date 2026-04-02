@@ -1,0 +1,150 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-26 15:07:44.025811",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "detector_name",
+  "zone",
+  "status",
+  "sensitivity",
+  "last_check",
+  "column_break_dcxg",
+  "alarm_state",
+  "battery_level",
+  "manufacturer",
+  "model",
+  "serial"
+ ],
+ "fields": [
+  {
+   "default": "SD-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Naming Series",
+   "options": "SD-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "detector_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Detector Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "zone",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Zone",
+   "options": "Facility Zone",
+   "reqd": 1
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Active\nFault",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sensitivity",
+   "fieldtype": "Float",
+   "label": "Sensitivity"
+  },
+  {
+   "fieldname": "last_check",
+   "fieldtype": "Date",
+   "label": "Last Check"
+  },
+  {
+   "fieldname": "alarm_state",
+   "fieldtype": "Select",
+   "label": "Alarm State",
+   "options": "Normal\nAlarm"
+  },
+  {
+   "fieldname": "battery_level",
+   "fieldtype": "Float",
+   "label": "Battery Level (%)"
+  },
+  {
+   "fieldname": "manufacturer",
+   "fieldtype": "Data",
+   "label": "Manufacturer"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model"
+  },
+  {
+   "fieldname": "serial",
+   "fieldtype": "Data",
+   "label": "Serial"
+  },
+  {
+   "fieldname": "column_break_dcxg",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-26 15:20:04.565102",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Smoke Detector",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

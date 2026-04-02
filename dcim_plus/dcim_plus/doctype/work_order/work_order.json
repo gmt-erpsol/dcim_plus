@@ -1,0 +1,177 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-26 15:56:04.532586",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "work_order_id",
+  "type",
+  "equipment_type",
+  "equipment",
+  "column_break_rqwq",
+  "status",
+  "assigned_to",
+  "start_date",
+  "end_date",
+  "priority",
+  "column_break_zidm",
+  "description",
+  "notes",
+  "cost",
+  "completed_on"
+ ],
+ "fields": [
+  {
+   "default": "WO-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Naming Series",
+   "options": "WO-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "work_order_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Work Order ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "Installation\nRepair\nMaintenance\nInspection",
+   "reqd": 1
+  },
+  {
+   "fieldname": "equipment_type",
+   "fieldtype": "Link",
+   "label": "Equipment Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "equipment",
+   "fieldtype": "Dynamic Link",
+   "label": "Equipment",
+   "options": "equipment_type"
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Open\nIn Progress\nOn Hold\nClosed\nCancelled",
+   "reqd": 1
+  },
+  {
+   "fieldname": "assigned_to",
+   "fieldtype": "Link",
+   "label": "Assigned To",
+   "options": "User"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "default": "Medium",
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "Low\nMedium\nHigh\nEmergency"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Work Notes"
+  },
+  {
+   "fieldname": "cost",
+   "fieldtype": "Currency",
+   "label": "Cost"
+  },
+  {
+   "fieldname": "completed_on",
+   "fieldtype": "Datetime",
+   "label": "Completed On"
+  },
+  {
+   "fieldname": "column_break_rqwq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_zidm",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-26 15:57:16.366837",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Work Order",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

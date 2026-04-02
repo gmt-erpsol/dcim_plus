@@ -1,0 +1,178 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-26 15:37:27.608119",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "sensor_name",
+  "zone",
+  "status",
+  "last_check",
+  "leak_detected",
+  "column_break_hoje",
+  "threshold",
+  "alarm_state",
+  "sensor_type",
+  "cable_length",
+  "section_break_tech",
+  "manufacturer",
+  "model",
+  "serial",
+  "installation_date"
+ ],
+ "fields": [
+  {
+   "default": "WLS-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Naming Series",
+   "options": "WLS-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sensor_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Sensor Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "zone",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Zone",
+   "options": "Facility Zone",
+   "reqd": 1
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Active\nFault",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "leak_detected",
+   "fieldtype": "Check",
+   "label": "Leak Detected"
+  },
+  {
+   "fieldname": "last_check",
+   "fieldtype": "Datetime",
+   "label": "Last Check"
+  },
+  {
+   "fieldname": "threshold",
+   "fieldtype": "Float",
+   "label": "Moisture Threshold"
+  },
+  {
+   "default": "Normal",
+   "fieldname": "alarm_state",
+   "fieldtype": "Select",
+   "label": "Alarm State",
+   "options": "Normal\nAlert"
+  },
+  {
+   "fieldname": "sensor_type",
+   "fieldtype": "Select",
+   "label": "Sensor Type",
+   "options": "Point\nCable"
+  },
+  {
+   "depends_on": "eval:doc.sensor_type == 'Cable'",
+   "fieldname": "cable_length",
+   "fieldtype": "Float",
+   "label": "Cable Length (m)"
+  },
+  {
+   "fieldname": "section_break_tech",
+   "fieldtype": "Section Break",
+   "label": "Technical Details"
+  },
+  {
+   "fieldname": "manufacturer",
+   "fieldtype": "Data",
+   "label": "Manufacturer"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model"
+  },
+  {
+   "fieldname": "serial",
+   "fieldtype": "Data",
+   "label": "Serial"
+  },
+  {
+   "fieldname": "installation_date",
+   "fieldtype": "Date",
+   "label": "Installation Date"
+  },
+  {
+   "fieldname": "column_break_hoje",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-26 15:40:31.797582",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Water Leak Sensor",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

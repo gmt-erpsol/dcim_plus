@@ -1,0 +1,115 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-30 21:02:37.224516",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "asset",
+  "asset_name",
+  "asset_type",
+  "position_u",
+  "manufacturer",
+  "model",
+  "serial_number",
+  "status",
+  "ip_address",
+  "height_u",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "asset",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "IT Asset",
+   "options": "IT Asset",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "asset.asset_name",
+   "fieldname": "asset_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Asset Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "asset.asset_type",
+   "fieldname": "asset_type",
+   "fieldtype": "Data",
+   "label": "Asset Type",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "asset.position_u",
+   "fieldname": "position_u",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "U Position",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "asset.manufacturer",
+   "fieldname": "manufacturer",
+   "fieldtype": "Data",
+   "label": "Manufacturer",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "asset.model",
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "asset.serial_number",
+   "fieldname": "serial_number",
+   "fieldtype": "Data",
+   "label": "Serial Number",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "asset.status",
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "Status",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "asset.ip_address",
+   "fieldname": "ip_address",
+   "fieldtype": "Data",
+   "label": "IP Address",
+   "read_only": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "height_u",
+   "fieldtype": "Int",
+   "label": "Height (U)"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-03-30 21:02:37.224516",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Rack Asset Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

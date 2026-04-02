@@ -1,0 +1,171 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-26 16:03:53.330082",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "maintenance_id",
+  "equipment_type",
+  "equipment",
+  "column_break_spmi",
+  "schedule_date",
+  "type",
+  "status",
+  "technician",
+  "column_break_lsfx",
+  "notes",
+  "column_break_mtex",
+  "completed_on",
+  "cost",
+  "parts_used"
+ ],
+ "fields": [
+  {
+   "default": "MT-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Naming Series",
+   "options": "MT-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "maintenance_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Maintenance ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "equipment_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Equipment Type",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "equipment",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Equipment",
+   "options": "equipment_type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "schedule_date",
+   "fieldtype": "Date",
+   "label": "Schedule Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Maintenance Type",
+   "options": "Preventive\nCorrective\nPredictive",
+   "reqd": 1
+  },
+  {
+   "default": "Planned",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Planned\nIn Progress\nCompleted\nCancelled",
+   "reqd": 1
+  },
+  {
+   "fieldname": "technician",
+   "fieldtype": "Data",
+   "label": "Technician"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Maintenance Notes"
+  },
+  {
+   "fieldname": "completed_on",
+   "fieldtype": "Date",
+   "label": "Completed On"
+  },
+  {
+   "fieldname": "cost",
+   "fieldtype": "Currency",
+   "label": "Cost"
+  },
+  {
+   "fieldname": "parts_used",
+   "fieldtype": "Table",
+   "label": "Parts Used",
+   "options": "Maintenance Parts"
+  },
+  {
+   "fieldname": "column_break_spmi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_lsfx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_mtex",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-26 16:04:54.517234",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Maintenance",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

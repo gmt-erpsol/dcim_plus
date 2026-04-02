@@ -1,0 +1,158 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-26 15:44:21.096678",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "log_id",
+  "zone",
+  "humidity",
+  "temperature",
+  "column_break_akew",
+  "timestamp",
+  "status",
+  "source",
+  "recorded_by",
+  "column_break_omow",
+  "remarks",
+  "alert_triggered"
+ ],
+ "fields": [
+  {
+   "default": "ENV-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Naming Series",
+   "options": "ENV-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "log_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Log ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "zone",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Zone",
+   "options": "Facility Zone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "temperature",
+   "fieldtype": "Float",
+   "label": "Temperature (\u00b0C)"
+  },
+  {
+   "fieldname": "humidity",
+   "fieldtype": "Float",
+   "label": "Humidity (%)"
+  },
+  {
+   "default": "Now",
+   "fieldname": "timestamp",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Timestamp",
+   "reqd": 1
+  },
+  {
+   "default": "Normal",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Normal\nAlert",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "label": "Source Sensor"
+  },
+  {
+   "fieldname": "recorded_by",
+   "fieldtype": "Link",
+   "label": "Recorded By",
+   "options": "User"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks"
+  },
+  {
+   "default": "0",
+   "fieldname": "alert_triggered",
+   "fieldtype": "Check",
+   "label": "Alert Triggered"
+  },
+  {
+   "fieldname": "column_break_akew",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_omow",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-26 15:52:01.603498",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Environmental Log",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

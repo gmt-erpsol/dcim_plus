@@ -1,0 +1,76 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-26 16:46:21.573852",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "visitor_log",
+  "visitor_name",
+  "company",
+  "entry_time",
+  "purpose",
+  "host"
+ ],
+ "fields": [
+  {
+   "fieldname": "visitor_log",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Visitor Log",
+   "options": "Visitor Log",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "visitor_log.full_name",
+   "fieldname": "visitor_name",
+   "fieldtype": "Data",
+   "label": "Visitor Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "visitor_log.company_name",
+   "fieldname": "company",
+   "fieldtype": "Data",
+   "label": "Company",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "visitor_log.entry_time",
+   "fieldname": "entry_time",
+   "fieldtype": "Datetime",
+   "label": "Entry Time",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "visitor_log.purpose_description",
+   "fieldname": "purpose",
+   "fieldtype": "Text",
+   "label": "Purpose",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "visitor_log.host_person",
+   "fieldname": "host",
+   "fieldtype": "Data",
+   "label": "Host",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-03-26 16:46:21.573852",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Shift Handover Visitors",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

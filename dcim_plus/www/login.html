@@ -1,0 +1,411 @@
+{% extends "templates/web.html" %}
+
+{% block title %}Awash Bank DCIM Plus | Login{% endblock %}
+
+{% block page_content %}
+<div class="dcim-login-container">
+    <div class="dcim-login-card">
+        <div class="dcim-login-header">
+            <div class="dcim-logo">
+                <img src="/assets/dcim_plus/images/awash-bank-logo.png" alt="Awash Bank" class="dcim-logo-img">
+                <div class="dcim-logo-text">
+                    <h1>DCIM PLUS</h1>
+                    <p>Data Center Infrastructure Management</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="dcim-login-content">
+            <h2 class="dcim-welcome-text">Welcome to Awash Bank DCIM Plus</h2>
+            <p class="dcim-subtitle">Secure access to data center management system</p>
+            
+            <form role="form" id="login-form" method="post">
+                <div class="dcim-form-group">
+                    <label for="login_email">Username</label>
+                    <input type="text" id="login_email" name="usr" class="dcim-input" placeholder="Enter your username" autofocus>
+                </div>
+                
+                <div class="dcim-form-group">
+                    <label for="login_password">Password</label>
+                    <input type="password" id="login_password" name="pwd" class="dcim-input" placeholder="Enter your password">
+                </div>
+                
+                <div class="dcim-form-actions">
+                    <button type="submit" class="dcim-login-btn">Login to System</button>
+                </div>
+                
+                <div class="dcim-links">
+                    <a href="/forgot-password" class="dcim-link">Forgot Password?</a>
+                </div>
+            </form>
+        </div>
+        
+        <div class="dcim-login-footer">
+            <div class="dcim-footer-logo">
+                <img src="/assets/dcim_plus/images/awash-footer-logo.png" alt="Awash Bank" class="dcim-footer-img">
+            </div>
+            <div class="dcim-footer-text">
+                <p>&copy; 2026 Awash Bank. All rights reserved.</p>
+                <p>Addis Ababa, Ethiopia</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Reset and Base Styles */
+.dcim-login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0F1117 0%, #1A1C23 100%);
+    padding: 20px;
+    margin: 0;
+}
+
+.dcim-login-card {
+    max-width: 450px;
+    width: 100%;
+    background: #1A1C23;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    border: 1px solid #2D2F36;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* Header Section */
+.dcim-login-header {
+    padding: 35px 30px 25px;
+    text-align: center;
+    background: #0F1117;
+    border-bottom: 1px solid #2D2F36;
+}
+
+.dcim-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.dcim-logo-img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.dcim-logo-text h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #FFFFFF 0%, #E0E7FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dcim-logo-text p {
+    font-size: 12px;
+    color: #9CA3AF;
+    margin: 5px 0 0;
+    letter-spacing: 0.3px;
+}
+
+/* Content Section */
+.dcim-login-content {
+    padding: 35px 30px;
+}
+
+.dcim-welcome-text {
+    font-size: 22px;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin: 0 0 8px;
+    text-align: center;
+}
+
+.dcim-subtitle {
+    font-size: 13px;
+    color: #9CA3AF;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Form Styles */
+.dcim-form-group {
+    margin-bottom: 22px;
+}
+
+.dcim-form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: #E5E7EB;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dcim-input {
+    width: 100%;
+    padding: 12px 16px;
+    background: #0F1117;
+    border: 1px solid #2D2F36;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #FFFFFF;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+.dcim-input:focus {
+    outline: none;
+    border-color: #3B82F6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    background: #1A1C23;
+}
+
+.dcim-input::placeholder {
+    color: #6B7280;
+}
+
+/* Button Styles */
+.dcim-form-actions {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.dcim-login-btn {
+    width: 100%;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.3px;
+}
+
+.dcim-login-btn:hover {
+    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+.dcim-login-btn:active {
+    transform: translateY(0);
+}
+
+/* Links */
+.dcim-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.dcim-link {
+    font-size: 13px;
+    color: #9CA3AF;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.dcim-link:hover {
+    color: #3B82F6;
+    text-decoration: none;
+}
+
+/* Footer Section */
+.dcim-login-footer {
+    padding: 25px 30px 20px;
+    text-align: center;
+    background: #0F1117;
+    border-top: 1px solid #2D2F36;
+}
+
+.dcim-footer-logo {
+    margin-bottom: 12px;
+}
+
+.dcim-footer-img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.dcim-footer-img:hover {
+    opacity: 1;
+}
+
+.dcim-footer-text p {
+    font-size: 11px;
+    color: #6B7280;
+    margin: 5px 0;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dcim-login-container {
+        padding: 15px;
+    }
+    
+    .dcim-login-card {
+        max-width: 100%;
+    }
+    
+    .dcim-login-header {
+        padding: 25px 20px;
+    }
+    
+    .dcim-logo-img {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .dcim-logo-text h1 {
+        font-size: 22px;
+    }
+    
+    .dcim-logo-text p {
+        font-size: 10px;
+    }
+    
+    .dcim-login-content {
+        padding: 25px 20px;
+    }
+    
+    .dcim-welcome-text {
+        font-size: 20px;
+    }
+    
+    .dcim-login-footer {
+        padding: 20px;
+    }
+    
+    .dcim-footer-img {
+        height: 35px;
+    }
+}
+
+/* Remove default Frappe login elements */
+#page-login .page-card,
+#page-login .btn-login-with-email-link,
+#page-login .login-option,
+#page-login .forgot-password-message {
+    display: none;
+}
+
+/* Ensure our custom login shows */
+#page-login .page-content {
+    padding: 0;
+    margin: 0;
+}
+
+#page-login .container {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+}
+</style>
+
+<script>
+frappe.ready(function() {
+    // Hide Frappe default login elements
+    setTimeout(function() {
+        $('.login-option').hide();
+        $('.btn-login-with-email-link').hide();
+        $('#login-email').hide();
+        $('.forgot-password-message').hide();
+        $('.page-card').hide();
+    }, 100);
+    
+    // Handle form submission
+    $('#login-form').on('submit', function(e) {
+        e.preventDefault();
+        
+        var username = $('input[name="usr"]').val();
+        var password = $('input[name="pwd"]').val();
+        
+        if (!username || !password) {
+            frappe.msgprint({
+                title: __('Login Failed'),
+                message: __('Please enter both username and password'),
+                indicator: 'red'
+            });
+            return;
+        }
+        
+        // Show loading state
+        var $btn = $('.dcim-login-btn');
+        var originalText = $btn.text();
+        $btn.text('Logging in...').prop('disabled', true);
+        
+        // Use standard form submission to Frappe's login endpoint
+        var formData = new FormData();
+        formData.append('usr', username);
+        formData.append('pwd', password);
+        
+        fetch('/api/method/login', {
+            method: 'POST',
+            body: formData,
+            credentials: 'same-origin'
+        })
+        .then(response => {
+            if (response.redirected) {
+                window.location.href = response.url;
+            } else if (response.ok) {
+                window.location.href = '/app';
+            } else {
+                return response.text().then(text => {
+                    throw new Error(text);
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Login error:', error);
+            frappe.msgprint({
+                title: __('Login Failed'),
+                message: __('Invalid username or password. Please try again.'),
+                indicator: 'red'
+            });
+            $btn.text(originalText).prop('disabled', false);
+            $('input[name="pwd"]').val('').focus();
+        });
+    });
+    
+    // Allow Enter key to submit
+    $('input[name="pwd"]').on('keypress', function(e) {
+        if (e.which === 13) {
+            $('#login-form').submit();
+        }
+    });
+    
+    $('input[name="usr"]').on('keypress', function(e) {
+        if (e.which === 13) {
+            $('input[name="pwd"]').focus();
+        }
+    });
+});
+</script>
+{% endblock %}

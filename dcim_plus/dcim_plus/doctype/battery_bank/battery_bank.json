@@ -1,0 +1,149 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-26 14:41:35.369044",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "bank_name",
+  "ups",
+  "capacity",
+  "voltage",
+  "status",
+  "column_break_tieb",
+  "last_check",
+  "temperature",
+  "manufacturer",
+  "model",
+  "serial"
+ ],
+ "fields": [
+  {
+   "default": "BAT-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Naming Series",
+   "options": "BAT-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bank_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Bank Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ups",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "UPS",
+   "options": "UPS",
+   "reqd": 1
+  },
+  {
+   "fieldname": "capacity",
+   "fieldtype": "Float",
+   "label": "Capacity (Ah)"
+  },
+  {
+   "fieldname": "voltage",
+   "fieldtype": "Float",
+   "label": "Voltage (V)"
+  },
+  {
+   "default": "Good",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Good\nReplace",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_check",
+   "fieldtype": "Date",
+   "label": "Last Check"
+  },
+  {
+   "fieldname": "temperature",
+   "fieldtype": "Float",
+   "label": "Temperature (\u00b0C)"
+  },
+  {
+   "fieldname": "manufacturer",
+   "fieldtype": "Data",
+   "label": "Manufacturer"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model"
+  },
+  {
+   "fieldname": "serial",
+   "fieldtype": "Data",
+   "label": "Serial"
+  },
+  {
+   "fieldname": "column_break_tieb",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-26 14:43:40.557172",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Battery Bank",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

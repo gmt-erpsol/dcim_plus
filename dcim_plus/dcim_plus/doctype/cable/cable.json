@@ -1,0 +1,244 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-26 16:57:56.509634",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "cable_id",
+  "type",
+  "length",
+  "source_device_type",
+  "source_device",
+  "source_port",
+  "column_break_cable",
+  "target_device_type",
+  "target_device",
+  "target_port",
+  "status",
+  "section_break_cable_specs",
+  "category",
+  "color",
+  "label",
+  "installed_date",
+  "section_break_cable_notes",
+  "notes",
+  "connection_path",
+  "color_code",
+  "installed_by",
+  "verified"
+ ],
+ "fields": [
+  {
+   "default": "CBL-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "CBL-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cable_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Cable ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Cable Type",
+   "options": "Fiber\nCopper\nPower\nFiber (Single Mode)\nFiber (Multi Mode)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "length",
+   "fieldtype": "Float",
+   "label": "Length (meters)"
+  },
+  {
+   "fieldname": "source_device_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Source Device Type",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_device",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Source Device",
+   "options": "source_device_type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_port",
+   "fieldtype": "Data",
+   "label": "Source Port"
+  },
+  {
+   "fieldname": "column_break_cable",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "target_device_type",
+   "fieldtype": "Link",
+   "label": "Target Device Type",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "target_device",
+   "fieldtype": "Dynamic Link",
+   "label": "Target Device",
+   "options": "target_device_type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "target_port",
+   "fieldtype": "Data",
+   "label": "Target Port"
+  },
+  {
+   "default": "Connected",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Connected\nDisconnected\nFaulty\nTesting",
+   "reqd": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_cable_specs",
+   "fieldtype": "Section Break",
+   "label": "Cable Specifications"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "Cat5e\nCat6\nCat6a\nCat7\nCat8\nOM1\nOM2\nOM3\nOM4\nOS1\nOS2"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "Color"
+  },
+  {
+   "fieldname": "label",
+   "fieldtype": "Data",
+   "label": "Physical Label"
+  },
+  {
+   "fieldname": "installed_date",
+   "fieldtype": "Date",
+   "label": "Installed Date"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_cable_notes",
+   "fieldtype": "Section Break",
+   "label": "Additional Information"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes / Comments"
+  },
+  {
+   "fieldname": "connection_path",
+   "fieldtype": "Data",
+   "label": "Connection Path",
+   "read_only": 1
+  },
+  {
+   "fieldname": "color_code",
+   "fieldtype": "Data",
+   "label": "Color Code"
+  },
+  {
+   "fieldname": "installed_by",
+   "fieldtype": "Link",
+   "label": "Installed By",
+   "options": "User"
+  },
+  {
+   "default": "0",
+   "fieldname": "verified",
+   "fieldtype": "Check",
+   "label": "Verified"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-27 07:31:58.746323",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Cable",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Network Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

@@ -1,0 +1,165 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-28 16:49:56.611930",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "scenario_name",
+  "scenario_type",
+  "affected_equipment",
+  "duration_minutes",
+  "impact_score",
+  "risk_level",
+  "affected_devices",
+  "estimated_downtime",
+  "power_loss_kw",
+  "temp_rise_c",
+  "simulation_results",
+  "recommendations",
+  "created_by",
+  "created_on"
+ ],
+ "fields": [
+  {
+   "fieldname": "scenario_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Scenario Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "scenario_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Scenario Type",
+   "options": "Power Failure\nCooling Failure\nRack Addition\nServer Addition\nUPS Failure\nGenerator Failure\nNetwork Outage",
+   "reqd": 1
+  },
+  {
+   "description": "e.g., UPS-01, CRAC-01, Rack A, Server Room B",
+   "fieldname": "affected_equipment",
+   "fieldtype": "Data",
+   "label": "Affected Equipment"
+  },
+  {
+   "default": "30",
+   "fieldname": "duration_minutes",
+   "fieldtype": "Int",
+   "label": "Duration (minutes)"
+  },
+  {
+   "fieldname": "impact_score",
+   "fieldtype": "Int",
+   "label": "Impact Score (1-100)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "risk_level",
+   "fieldtype": "Select",
+   "label": "Risk Level",
+   "options": "Low\nMedium\nHigh\nCritical",
+   "read_only": 1
+  },
+  {
+   "fieldname": "affected_devices",
+   "fieldtype": "Data",
+   "label": "Affected Devices Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "estimated_downtime",
+   "fieldtype": "Data",
+   "label": "Estimated Downtime",
+   "read_only": 1
+  },
+  {
+   "fieldname": "power_loss_kw",
+   "fieldtype": "Float",
+   "label": "Power Loss (kW)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "temp_rise_c",
+   "fieldtype": "Float",
+   "label": "Temperature Rise (\u00b0C)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "simulation_results",
+   "fieldtype": "Text",
+   "label": "Simulation Results",
+   "read_only": 1
+  },
+  {
+   "fieldname": "recommendations",
+   "fieldtype": "Text",
+   "label": "Recommendations",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By",
+   "options": "User"
+  },
+  {
+   "default": "Now",
+   "fieldname": "created_on",
+   "fieldtype": "Datetime",
+   "label": "Created On"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-28 16:49:56.611930",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Simulation Scenario",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

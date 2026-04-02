@@ -1,0 +1,20 @@
+{
+ "content": null,
+ "creation": "2026-03-30 20:48:57.525691",
+ "docstatus": 0,
+ "doctype": "Page",
+ "icon": "\u26a1",
+ "idx": 0,
+ "modified": "2026-03-30 20:48:57.525691",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "power-dashboard",
+ "owner": "Administrator",
+ "page_name": "power-dashboard",
+ "roles": [],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Power Management Dashboard"
+}
