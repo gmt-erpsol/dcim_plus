@@ -1,0 +1,244 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-26 16:58:24.228123",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "log_id",
+  "user",
+  "user_full_name",
+  "access_type",
+  "timestamp",
+  "ip_address",
+  "device",
+  "column_break_access",
+  "status",
+  "failure_reason",
+  "location",
+  "section_break_access_details",
+  "accessed_doctype",
+  "accessed_document",
+  "action",
+  "session",
+  "section_break_security",
+  "role_used",
+  "two_factor_auth",
+  "remarks",
+  "risk_level"
+ ],
+ "fields": [
+  {
+   "default": "UAL-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "UAL-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "log_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Log ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "User",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "user.full_name",
+   "fieldname": "user_full_name",
+   "fieldtype": "Data",
+   "label": "User Full Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "access_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Access Type",
+   "options": "Login\nLogout\nFailed Login\nPassword Change\nPermission Change\nData Export\nData Import\nAPI Access\nZone Access",
+   "reqd": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "timestamp",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Timestamp",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ip_address",
+   "fieldtype": "Data",
+   "label": "IP Address"
+  },
+  {
+   "description": "User agent or device information",
+   "fieldname": "device",
+   "fieldtype": "Data",
+   "label": "Device / Browser"
+  },
+  {
+   "fieldname": "column_break_access",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Success",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Success\nFail\nBlocked\nTimeout",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.status == 'Fail'",
+   "fieldname": "failure_reason",
+   "fieldtype": "Data",
+   "label": "Failure Reason"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Geographic Location"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_access_details",
+   "fieldtype": "Section Break",
+   "label": "Access Details"
+  },
+  {
+   "fieldname": "accessed_doctype",
+   "fieldtype": "Link",
+   "label": "Accessed Document Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "accessed_document",
+   "fieldtype": "Dynamic Link",
+   "label": "Accessed Document",
+   "options": "accessed_doctype"
+  },
+  {
+   "fieldname": "action",
+   "fieldtype": "Data",
+   "label": "Action Performed"
+  },
+  {
+   "fieldname": "session",
+   "fieldtype": "Data",
+   "label": "Session ID"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_security",
+   "fieldtype": "Section Break",
+   "label": "Security Context"
+  },
+  {
+   "fieldname": "role_used",
+   "fieldtype": "Link",
+   "label": "Role Used",
+   "options": "Role"
+  },
+  {
+   "default": "0",
+   "fieldname": "two_factor_auth",
+   "fieldtype": "Check",
+   "label": "2FA Used"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks / Notes"
+  },
+  {
+   "fieldname": "risk_level",
+   "fieldtype": "Select",
+   "label": "Risk Level",
+   "options": "Low\nMedium\nHigh\nCritical"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-26 16:58:24.228123",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "User Access Log",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Security"
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Auditor"
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

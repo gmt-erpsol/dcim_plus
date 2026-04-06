@@ -1,0 +1,431 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-26 23:35:40.186806",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "system_name",
+  "system_id",
+  "system_type",
+  "zone",
+  "room",
+  "column_break_basic",
+  "manufacturer",
+  "model",
+  "serial_number",
+  "installation_date",
+  "warranty_expiry",
+  "section_specs",
+  "agent_type",
+  "agent_quantity",
+  "water_flow_rate",
+  "foam_concentration",
+  "coverage_area",
+  "column_break_specs",
+  "discharge_time",
+  "cylinders_count",
+  "piping_material",
+  "nozzle_count",
+  "section_detection",
+  "detection_type",
+  "control_panel",
+  "detectors_count",
+  "manual_call_points",
+  "column_break_detection",
+  "alarm_devices",
+  "abort_stations",
+  "pre_action",
+  "section_status",
+  "status",
+  "alarm_state",
+  "pressure",
+  "pressure_status",
+  "column_break_status",
+  "battery_health",
+  "last_test",
+  "next_test",
+  "last_inspection",
+  "section_maintenance",
+  "last_service",
+  "next_service",
+  "service_provider",
+  "maintenance_notes",
+  "section_docs",
+  "as_built_drawings",
+  "operation_manual",
+  "test_certificates",
+  "notes",
+  "location"
+ ],
+ "fields": [
+  {
+   "default": "FS-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "FS-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "system_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "System Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "system_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "System ID / Tag"
+  },
+  {
+   "fieldname": "system_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Fire Suppression Type",
+   "options": "Gas\nWater\nFoam\nPowder\nClean Agent\nInert Gas",
+   "reqd": 1
+  },
+  {
+   "fieldname": "zone",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Zone",
+   "options": "Facility Zone"
+  },
+  {
+   "fetch_from": "zone.room",
+   "fieldname": "room",
+   "fieldtype": "Data",
+   "label": "Room",
+   "options": "Room",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "manufacturer",
+   "fieldtype": "Data",
+   "label": "Manufacturer"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model"
+  },
+  {
+   "fieldname": "serial_number",
+   "fieldtype": "Data",
+   "label": "Serial Number"
+  },
+  {
+   "fieldname": "installation_date",
+   "fieldtype": "Date",
+   "label": "Installation Date"
+  },
+  {
+   "fieldname": "warranty_expiry",
+   "fieldtype": "Date",
+   "label": "Warranty Expiry"
+  },
+  {
+   "fieldname": "section_specs",
+   "fieldtype": "Section Break",
+   "label": "\ud83d\udd25 System Specifications"
+  },
+  {
+   "depends_on": "eval:doc.system_type == 'Gas'",
+   "fieldname": "agent_type",
+   "fieldtype": "Select",
+   "label": "Suppression Agent",
+   "options": "FM-200\nNOVEC 1230\nCO2\nInergen\nArgonite\nDry Chemical\nWet Chemical"
+  },
+  {
+   "depends_on": "eval:doc.system_type == 'Gas'",
+   "fieldname": "agent_quantity",
+   "fieldtype": "Float",
+   "label": "Agent Quantity (kg/lbs)"
+  },
+  {
+   "depends_on": "eval:doc.system_type == 'Water'",
+   "fieldname": "water_flow_rate",
+   "fieldtype": "Float",
+   "label": "Water Flow Rate (L/min)"
+  },
+  {
+   "depends_on": "eval:doc.system_type == 'Foam'",
+   "fieldname": "foam_concentration",
+   "fieldtype": "Float",
+   "label": "Foam Concentration (%)"
+  },
+  {
+   "description": "Maximum area protected",
+   "fieldname": "coverage_area",
+   "fieldtype": "Float",
+   "label": "Coverage Area (sqm)"
+  },
+  {
+   "fieldname": "column_break_specs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "e.g., 10 seconds",
+   "fieldname": "discharge_time",
+   "fieldtype": "Data",
+   "label": "Discharge Time"
+  },
+  {
+   "default": "1",
+   "fieldname": "cylinders_count",
+   "fieldtype": "Int",
+   "label": "Number of Cylinders"
+  },
+  {
+   "fieldname": "piping_material",
+   "fieldtype": "Data",
+   "label": "Piping Material"
+  },
+  {
+   "fieldname": "nozzle_count",
+   "fieldtype": "Int",
+   "label": "Number of Nozzles"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_detection",
+   "fieldtype": "Section Break",
+   "label": "\ud83d\udea8 Detection & Control"
+  },
+  {
+   "fieldname": "detection_type",
+   "fieldtype": "Select",
+   "label": "Detection Type",
+   "options": "Smoke\nHeat\nFlame\nMulti-sensor\nVESDA",
+   "reqd": 1
+  },
+  {
+   "fieldname": "control_panel",
+   "fieldtype": "Data",
+   "label": "Control Panel Model"
+  },
+  {
+   "fieldname": "detectors_count",
+   "fieldtype": "Int",
+   "label": "Number of Detectors"
+  },
+  {
+   "fieldname": "manual_call_points",
+   "fieldtype": "Int",
+   "label": "Manual Call Points"
+  },
+  {
+   "fieldname": "column_break_detection",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Horns, strobes, speakers",
+   "fieldname": "alarm_devices",
+   "fieldtype": "Data",
+   "label": "Alarm Devices"
+  },
+  {
+   "description": "Manual abort switches",
+   "fieldname": "abort_stations",
+   "fieldtype": "Int",
+   "label": "Abort Stations"
+  },
+  {
+   "default": "0",
+   "description": "Requires two independent signals",
+   "fieldname": "pre_action",
+   "fieldtype": "Check",
+   "label": "Pre-action System"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_status",
+   "fieldtype": "Section Break",
+   "label": "\ud83d\udcca Operational Status"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "System Status",
+   "options": "Active\nInactive\nMaintenance\nFault\nTest Mode",
+   "reqd": 1
+  },
+  {
+   "default": "Normal",
+   "fieldname": "alarm_state",
+   "fieldtype": "Select",
+   "label": "Alarm State",
+   "options": "Normal\nAlert\nPre-discharge\nDischarging\nFault"
+  },
+  {
+   "fieldname": "pressure",
+   "fieldtype": "Float",
+   "label": "System Pressure (PSI/bar)"
+  },
+  {
+   "default": "Normal",
+   "fieldname": "pressure_status",
+   "fieldtype": "Select",
+   "label": "Pressure Status",
+   "options": "Normal\nLow\nHigh\nCritical"
+  },
+  {
+   "fieldname": "column_break_status",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "battery_health",
+   "fieldtype": "Percent",
+   "label": "Battery Health (%)"
+  },
+  {
+   "fieldname": "last_test",
+   "fieldtype": "Date",
+   "label": "Last Test Date"
+  },
+  {
+   "fieldname": "next_test",
+   "fieldtype": "Date",
+   "label": "Next Test Date"
+  },
+  {
+   "fieldname": "last_inspection",
+   "fieldtype": "Date",
+   "label": "Last Inspection"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_maintenance",
+   "fieldtype": "Section Break",
+   "label": "\ud83d\udd27 Maintenance Records"
+  },
+  {
+   "fieldname": "last_service",
+   "fieldtype": "Date",
+   "label": "Last Service Date"
+  },
+  {
+   "fieldname": "next_service",
+   "fieldtype": "Date",
+   "label": "Next Service Date"
+  },
+  {
+   "fieldname": "service_provider",
+   "fieldtype": "Link",
+   "label": "Service Provider",
+   "options": "Vendor"
+  },
+  {
+   "fieldname": "maintenance_notes",
+   "fieldtype": "Text",
+   "label": "Maintenance Notes"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_docs",
+   "fieldtype": "Section Break",
+   "label": "\ud83d\udcc4 Documentation"
+  },
+  {
+   "fieldname": "as_built_drawings",
+   "fieldtype": "Attach",
+   "label": "As-Built Drawings"
+  },
+  {
+   "fieldname": "operation_manual",
+   "fieldtype": "Attach",
+   "label": "Operation Manual"
+  },
+  {
+   "fieldname": "test_certificates",
+   "fieldtype": "Attach",
+   "label": "Test Certificates"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Additional Notes"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Location"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-02 16:37:37.962390",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Fire System",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Technician",
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

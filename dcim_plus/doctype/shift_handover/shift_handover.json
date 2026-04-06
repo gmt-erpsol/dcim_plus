@@ -1,0 +1,563 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-26 16:46:36.324578",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_header",
+  "naming_series",
+  "shift_date",
+  "shift",
+  "start_time",
+  "end_time",
+  "column_break_header",
+  "dc_officers",
+  "delivered_to",
+  "section_incidents",
+  "has_incidents",
+  "incidents",
+  "section_camera",
+  "camera_problem",
+  "camera_problem_desc",
+  "section_ac",
+  "ac_problem",
+  "ac_problem_desc",
+  "ac_temperatures",
+  "section_fire",
+  "fire_extinguishers_normal",
+  "fire_problem_desc",
+  "section_generators",
+  "power_interruption",
+  "power_interruption_time",
+  "power_interruption_duration",
+  "column_break_gen",
+  "generators_normal",
+  "generator_problem_desc",
+  "fuel_level_ok",
+  "fuel_level",
+  "section_ups",
+  "centric_ups_charge_l1",
+  "centric_ups_charge_l2",
+  "centric_ups_charge_l3",
+  "centric_ups_load_l1",
+  "centric_ups_load_l2",
+  "centric_ups_load_l3",
+  "centric_ups_runtime",
+  "column_break_ups",
+  "apc_ups_charge_l1",
+  "apc_ups_charge_l2",
+  "apc_ups_charge_l3",
+  "apc_ups_load_l1",
+  "apc_ups_load_l2",
+  "apc_ups_load_l3",
+  "apc_ups_runtime",
+  "section_visitors",
+  "has_visitors",
+  "visitors",
+  "section_tasks",
+  "tasks_performed",
+  "pending_tasks",
+  "section_room",
+  "room_clean",
+  "room_clean_desc",
+  "telephone_working",
+  "column_break_room",
+  "lighting_working",
+  "lighting_desc",
+  "section_notes",
+  "general_remarks",
+  "handover_notes",
+  "recommendations",
+  "section_approval",
+  "outgoing_signature",
+  "incoming_signature",
+  "column_break_approval",
+  "approved",
+  "approved_by",
+  "approved_on"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_header",
+   "fieldtype": "Section Break",
+   "label": "\ud83d\udccb SHIFT HANDOVER REPORT"
+  },
+  {
+   "default": "SH-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "SH-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "shift_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Shift Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "shift",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Shift",
+   "options": "Day 08:00 AM - 05:00 PM\nEvening 05:00 PM - 10:00 PM\nNight 10:00 PM - 08:00 AM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Start Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "End Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_header",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "dc_officers",
+   "fieldtype": "Table",
+   "label": "DC Officers on Duty",
+   "options": "Shift DC Officers"
+  },
+  {
+   "fieldname": "delivered_to",
+   "fieldtype": "Link",
+   "label": "Handover Delivered To",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_incidents",
+   "fieldtype": "Section Break",
+   "label": "\ud83d\udea8 1. INCIDENTS"
+  },
+  {
+   "default": "No",
+   "fieldname": "has_incidents",
+   "fieldtype": "Select",
+   "label": "Were there any major/critical incidents on any DC system?",
+   "options": "No\nYes",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.has_incidents == 'Yes'",
+   "fieldname": "incidents",
+   "fieldtype": "Table",
+   "label": "Incident Details",
+   "options": "Shift Handover Incidents"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_camera",
+   "fieldtype": "Section Break",
+   "label": "\ud83d\udcf9 2. CAMERA SYSTEM"
+  },
+  {
+   "default": "No",
+   "fieldname": "camera_problem",
+   "fieldtype": "Select",
+   "label": "Was there any problem with LCD display or camera system?",
+   "options": "No\nYes"
+  },
+  {
+   "depends_on": "eval:doc.camera_problem == 'Yes'",
+   "fieldname": "camera_problem_desc",
+   "fieldtype": "Text",
+   "label": "Camera Problem Description"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_ac",
+   "fieldtype": "Section Break",
+   "label": "\u2744\ufe0f 3. AIR CONDITIONING"
+  },
+  {
+   "default": "No",
+   "fieldname": "ac_problem",
+   "fieldtype": "Select",
+   "label": "Is there any problem or alarm with AC systems?",
+   "options": "No\nYes"
+  },
+  {
+   "depends_on": "eval:doc.ac_problem == 'Yes'",
+   "fieldname": "ac_problem_desc",
+   "fieldtype": "Text",
+   "label": "AC Problem Description"
+  },
+  {
+   "fieldname": "ac_temperatures",
+   "fieldtype": "Table",
+   "label": "AC Temperature Readings",
+   "options": "Shift Handover AC Temperature"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_fire",
+   "fieldtype": "Section Break",
+   "label": "\ud83d\udd25 4. FIRE DETECTION & SUPPRESSION"
+  },
+  {
+   "default": "Yes",
+   "fieldname": "fire_extinguishers_normal",
+   "fieldtype": "Select",
+   "label": "Are all fire control systems normal?",
+   "options": "Yes\nNo"
+  },
+  {
+   "depends_on": "eval:doc.fire_extinguishers_normal == 'No'",
+   "fieldname": "fire_problem_desc",
+   "fieldtype": "Text",
+   "label": "Fire System Problem Description"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_generators",
+   "fieldtype": "Section Break",
+   "label": "\u26a1 5. GENERATORS & POWER"
+  },
+  {
+   "default": "No",
+   "fieldname": "power_interruption",
+   "fieldtype": "Select",
+   "label": "Was there any power interruption?",
+   "options": "No\nYes"
+  },
+  {
+   "depends_on": "eval:doc.power_interruption == 'Yes'",
+   "fieldname": "power_interruption_time",
+   "fieldtype": "Data",
+   "label": "Power Interruption Time"
+  },
+  {
+   "depends_on": "eval:doc.power_interruption == 'Yes'",
+   "fieldname": "power_interruption_duration",
+   "fieldtype": "Data",
+   "label": "Duration"
+  },
+  {
+   "fieldname": "column_break_gen",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Yes",
+   "fieldname": "generators_normal",
+   "fieldtype": "Select",
+   "label": "Were the generators operating normally?",
+   "options": "Yes\nNo"
+  },
+  {
+   "depends_on": "eval:doc.generators_normal == 'No'",
+   "fieldname": "generator_problem_desc",
+   "fieldtype": "Text",
+   "label": "Generator Problem Description"
+  },
+  {
+   "default": "Yes",
+   "fieldname": "fuel_level_ok",
+   "fieldtype": "Select",
+   "label": "Is there enough fuel for 24 hours of operation?",
+   "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "fuel_level",
+   "fieldtype": "Percent",
+   "label": "Current Fuel Level (%)"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_ups",
+   "fieldtype": "Section Break",
+   "label": "\ud83d\udd0b 6. UPS STATUS"
+  },
+  {
+   "fieldname": "centric_ups_charge_l1",
+   "fieldtype": "Percent",
+   "label": "Centric UPS L1 Charge (%)"
+  },
+  {
+   "fieldname": "centric_ups_charge_l2",
+   "fieldtype": "Percent",
+   "label": "Centric UPS L2 Charge (%)"
+  },
+  {
+   "fieldname": "centric_ups_charge_l3",
+   "fieldtype": "Percent",
+   "label": "Centric UPS L3 Charge (%)"
+  },
+  {
+   "fieldname": "centric_ups_load_l1",
+   "fieldtype": "Percent",
+   "label": "Centric UPS L1 Load (%)"
+  },
+  {
+   "fieldname": "centric_ups_load_l2",
+   "fieldtype": "Percent",
+   "label": "Centric UPS L2 Load (%)"
+  },
+  {
+   "fieldname": "centric_ups_load_l3",
+   "fieldtype": "Percent",
+   "label": "Centric UPS L3 Load (%)"
+  },
+  {
+   "fieldname": "centric_ups_runtime",
+   "fieldtype": "Data",
+   "label": "Centric UPS Runtime"
+  },
+  {
+   "fieldname": "column_break_ups",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "apc_ups_charge_l1",
+   "fieldtype": "Percent",
+   "label": "APC UPS L1 Charge (%)"
+  },
+  {
+   "fieldname": "apc_ups_charge_l2",
+   "fieldtype": "Percent",
+   "label": "APC UPS L2 Charge (%)"
+  },
+  {
+   "fieldname": "apc_ups_charge_l3",
+   "fieldtype": "Percent",
+   "label": "APC UPS L3 Charge (%)"
+  },
+  {
+   "fieldname": "apc_ups_load_l1",
+   "fieldtype": "Percent",
+   "label": "APC UPS L1 Load (%)"
+  },
+  {
+   "fieldname": "apc_ups_load_l2",
+   "fieldtype": "Percent",
+   "label": "APC UPS L2 Load (%)"
+  },
+  {
+   "fieldname": "apc_ups_load_l3",
+   "fieldtype": "Percent",
+   "label": "APC UPS L3 Load (%)"
+  },
+  {
+   "fieldname": "apc_ups_runtime",
+   "fieldtype": "Data",
+   "label": "APC UPS Runtime"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_visitors",
+   "fieldtype": "Section Break",
+   "label": "\ud83d\udc65 7. VISITOR LOG"
+  },
+  {
+   "default": "No",
+   "fieldname": "has_visitors",
+   "fieldtype": "Select",
+   "label": "Were there any visitors during this shift?",
+   "options": "No\nYes"
+  },
+  {
+   "depends_on": "eval:doc.has_visitors == 'Yes'",
+   "fieldname": "visitors",
+   "fieldtype": "Table",
+   "label": "Visitors Log",
+   "options": "Shift Handover Visitors"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_tasks",
+   "fieldtype": "Section Break",
+   "label": "\u2705 8. TASKS PERFORMED"
+  },
+  {
+   "fieldname": "tasks_performed",
+   "fieldtype": "Text",
+   "label": "Tasks Performed During Shift"
+  },
+  {
+   "fieldname": "pending_tasks",
+   "fieldtype": "Text",
+   "label": "Pending Tasks for Next Shift"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_room",
+   "fieldtype": "Section Break",
+   "label": "\ud83e\uddf9 9. ROOM CLEANNESS & FACILITIES"
+  },
+  {
+   "default": "Yes",
+   "fieldname": "room_clean",
+   "fieldtype": "Select",
+   "label": "Are all rooms clean and neat?",
+   "options": "Yes\nNo"
+  },
+  {
+   "depends_on": "eval:doc.room_clean == 'No'",
+   "fieldname": "room_clean_desc",
+   "fieldtype": "Text",
+   "label": "Cleanness Remarks"
+  },
+  {
+   "default": "Yes",
+   "fieldname": "telephone_working",
+   "fieldtype": "Select",
+   "label": "Is the telephone line working?",
+   "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "column_break_room",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Yes",
+   "fieldname": "lighting_working",
+   "fieldtype": "Select",
+   "label": "Is all lighting working properly?",
+   "options": "Yes\nNo"
+  },
+  {
+   "depends_on": "eval:doc.lighting_working == 'No'",
+   "fieldname": "lighting_desc",
+   "fieldtype": "Text",
+   "label": "Lighting Issues"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_notes",
+   "fieldtype": "Section Break",
+   "label": "\ud83d\udcdd 10. ADDITIONAL NOTES"
+  },
+  {
+   "fieldname": "general_remarks",
+   "fieldtype": "Text",
+   "label": "General Remarks"
+  },
+  {
+   "fieldname": "handover_notes",
+   "fieldtype": "Text",
+   "label": "Critical Handover Notes for Next Shift"
+  },
+  {
+   "fieldname": "recommendations",
+   "fieldtype": "Text",
+   "label": "Recommendations"
+  },
+  {
+   "fieldname": "section_approval",
+   "fieldtype": "Section Break",
+   "label": "\u270d\ufe0f 11. APPROVAL & SIGN-OFF"
+  },
+  {
+   "fieldname": "outgoing_signature",
+   "fieldtype": "Signature",
+   "label": "Outgoing Operator Signature",
+   "reqd": 1
+  },
+  {
+   "fieldname": "incoming_signature",
+   "fieldtype": "Signature",
+   "label": "Incoming Operator Signature",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_approval",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "approved",
+   "fieldtype": "Check",
+   "label": "Handover Approved"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "User"
+  },
+  {
+   "fieldname": "approved_on",
+   "fieldtype": "Datetime",
+   "label": "Approved On",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-26 16:54:02.603153",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Shift Handover",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Operator",
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

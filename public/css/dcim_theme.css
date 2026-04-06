@@ -1,0 +1,140 @@
+/* ============================================
+   DCIM PLUS - BRANDED UI THEME
+   Organized by component
+   ============================================ */
+
+/* 1. GLOBAL STYLES */
+:root {
+    --dcim-primary: #3B82F6;
+    --dcim-primary-dark: #2563EB;
+    --dcim-secondary: #10B981;
+    --dcim-accent: #F59E0B;
+    --dcim-danger: #EF4444;
+    --dcim-dark: #0A0C12;
+    --dcim-card: #1A1C23;
+    --dcim-border: #2D2F36;
+    --dcim-text: #E5E7EB;
+    --dcim-text-muted: #6B7280;
+}
+
+/* 2. NAVBAR (Top Bar) */
+.navbar {
+    background: linear-gradient(135deg, #0F1117 0%, #0A0C12 100%) !important;
+    border-bottom: 2px solid var(--dcim-primary) !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3) !important;
+}
+
+.navbar-brand {
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, #3B82F6, #10B981) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* 3. SIDEBAR */
+.sidebar, .layout-sidebar {
+    background: linear-gradient(180deg, #0F1117 0%, #0A0C12 100%) !important;
+    border-right: 1px solid #1E293B !important;
+}
+
+.sidebar-item {
+    border-radius: 10px !important;
+    margin: 4px 12px !important;
+    transition: all 0.2s ease !important;
+}
+
+.sidebar-item:hover {
+    background: rgba(59, 130, 246, 0.1) !important;
+    transform: translateX(4px) !important;
+}
+
+.sidebar-item.active {
+    background: linear-gradient(135deg, #3B82F6, #2563EB) !important;
+    box-shadow: 0 4px 12px rgba(59,130,246,0.3) !important;
+}
+
+/* 4. BUTTONS */
+.btn-primary {
+    background: linear-gradient(135deg, #3B82F6, #2563EB) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    transition: all 0.2s ease !important;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(59,130,246,0.4) !important;
+}
+
+/* 5. CARDS */
+.card, .frappe-card {
+    background: var(--dcim-card) !important;
+    border: 1px solid var(--dcim-border) !important;
+    border-radius: 16px !important;
+    transition: all 0.2s ease !important;
+}
+
+.card:hover, .frappe-card:hover {
+    border-color: var(--dcim-primary) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* 6. TABLES */
+.table {
+    background: var(--dcim-card) !important;
+}
+
+.table thead th {
+    background: #0F1117 !important;
+    color: #10B981 !important;
+    border-bottom: 1px solid var(--dcim-border) !important;
+}
+
+.table tbody tr:hover {
+    background: rgba(59, 130, 246, 0.05) !important;
+}
+
+/* 7. FORMS */
+.form-control, input, select, textarea {
+    background: #0F1117 !important;
+    border: 1px solid var(--dcim-border) !important;
+    border-radius: 10px !important;
+    color: white !important;
+}
+
+.form-control:focus {
+    border-color: var(--dcim-primary) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.2) !important;
+}
+
+/* 8. MODALS */
+.modal-content {
+    background: var(--dcim-card) !important;
+    border: 1px solid var(--dcim-border) !important;
+    border-radius: 20px !important;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--dcim-border) !important;
+    background: #0F1117 !important;
+}
+
+/* 9. SCROLLBAR */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0F1117;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3B82F6;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2563EB;
+}

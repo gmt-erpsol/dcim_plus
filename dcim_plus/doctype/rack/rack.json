@@ -1,0 +1,386 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:rack_name",
+ "creation": "2026-03-26 14:26:14.550087",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "rack_name",
+  "room",
+  "used_u",
+  "available_u",
+  "rack_height",
+  "column_break_lczc",
+  "power_capacity",
+  "cooling_capacity",
+  "status",
+  "row",
+  "position",
+  "column_break_fygl",
+  "rack_front",
+  "rack_back",
+  "floor_plan_section",
+  "position_x",
+  "position_y",
+  "room_map",
+  "rack_width",
+  "room_map_id",
+  "floor_x",
+  "floor_y",
+  "floor_width",
+  "floor_height",
+  "section_power_thermal",
+  "current_power",
+  "current_temp",
+  "temp_threshold",
+  "power_alert",
+  "temp_alert",
+  "section_predictive",
+  "risk_score",
+  "risk_level",
+  "predicted_failure_date",
+  "last_maintenance_date",
+  "maintenance_frequency",
+  "failure_history",
+  "mtbf",
+  "capacity_section",
+  "utilization_trend",
+  "predicted_full_date",
+  "recommendation",
+  "historical_utilization",
+  "assets_section",
+  "rack_assets"
+ ],
+ "fields": [
+  {
+   "default": "RACK-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Naming Series",
+   "options": "RACK-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rack_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Rack Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "room",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Room",
+   "options": "Room",
+   "reqd": 1
+  },
+  {
+   "default": "42",
+   "fieldname": "rack_height",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Rack Height (U)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "used_u",
+   "fieldtype": "Int",
+   "label": "Used U",
+   "read_only": 1
+  },
+  {
+   "fieldname": "available_u",
+   "fieldtype": "Int",
+   "label": "Available U",
+   "read_only": 1
+  },
+  {
+   "fieldname": "power_capacity",
+   "fieldtype": "Float",
+   "label": "Power Capacity (kW)"
+  },
+  {
+   "fieldname": "cooling_capacity",
+   "fieldtype": "Float",
+   "label": "Cooling Capacity (kW)"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nFull\nMaintenance",
+   "reqd": 1
+  },
+  {
+   "fieldname": "row",
+   "fieldtype": "Data",
+   "label": "Row"
+  },
+  {
+   "fieldname": "position",
+   "fieldtype": "Data",
+   "label": "Position"
+  },
+  {
+   "fieldname": "column_break_lczc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rack_front",
+   "fieldtype": "Image",
+   "label": "Rack Front "
+  },
+  {
+   "fieldname": "rack_back",
+   "fieldtype": "Image",
+   "label": "Rack Back"
+  },
+  {
+   "fieldname": "column_break_fygl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "floor_plan_section",
+   "fieldtype": "Section Break",
+   "label": "Floor Plan Position"
+  },
+  {
+   "description": "Position on floor plan",
+   "fieldname": "position_x",
+   "fieldtype": "Int",
+   "label": "X Position (px)"
+  },
+  {
+   "description": "Position on floor plan",
+   "fieldname": "position_y",
+   "fieldtype": "Int",
+   "label": "Y Position (px)"
+  },
+  {
+   "description": "Identifier for floor plan view",
+   "fieldname": "room_map",
+   "fieldtype": "Data",
+   "label": "Room Map ID"
+  },
+  {
+   "default": "60",
+   "fieldname": "rack_width",
+   "fieldtype": "Int",
+   "label": "Rack Width (px)"
+  },
+  {
+   "description": "Identifier for floor plan view",
+   "fieldname": "room_map_id",
+   "fieldtype": "Data",
+   "label": "Room Map ID"
+  },
+  {
+   "fieldname": "floor_x",
+   "fieldtype": "Int",
+   "label": "Floor X Position"
+  },
+  {
+   "fieldname": "floor_y",
+   "fieldtype": "Int",
+   "label": "Floor Y Position"
+  },
+  {
+   "default": "60",
+   "fieldname": "floor_width",
+   "fieldtype": "Int",
+   "label": "Width (px)"
+  },
+  {
+   "default": "80",
+   "fieldname": "floor_height",
+   "fieldtype": "Int",
+   "label": "Height (px)"
+  },
+  {
+   "fieldname": "section_power_thermal",
+   "fieldtype": "Section Break",
+   "label": "Power & Thermal Monitoring"
+  },
+  {
+   "default": "0",
+   "fieldname": "current_power",
+   "fieldtype": "Float",
+   "label": "Current Power (kW)"
+  },
+  {
+   "default": "22",
+   "fieldname": "current_temp",
+   "fieldtype": "Float",
+   "label": "Current Temperature (\u00b0C)"
+  },
+  {
+   "default": "30",
+   "fieldname": "temp_threshold",
+   "fieldtype": "Float",
+   "label": "Temperature Threshold (\u00b0C)"
+  },
+  {
+   "default": "0",
+   "fieldname": "power_alert",
+   "fieldtype": "Check",
+   "label": "Power Alert",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "temp_alert",
+   "fieldtype": "Check",
+   "label": "Temperature Alert",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_predictive",
+   "fieldtype": "Section Break",
+   "label": "Predictive Maintenance"
+  },
+  {
+   "default": "0",
+   "fieldname": "risk_score",
+   "fieldtype": "Int",
+   "label": "Risk Score (0-100)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "risk_level",
+   "fieldtype": "Select",
+   "label": "Risk Level",
+   "options": "Low\nMedium\nHigh\nCritical",
+   "read_only": 1
+  },
+  {
+   "fieldname": "predicted_failure_date",
+   "fieldtype": "Date",
+   "label": "Predicted Failure Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_maintenance_date",
+   "fieldtype": "Date",
+   "label": "Last Maintenance Date"
+  },
+  {
+   "default": "90",
+   "fieldname": "maintenance_frequency",
+   "fieldtype": "Int",
+   "label": "Maintenance Frequency (Days)"
+  },
+  {
+   "default": "0",
+   "fieldname": "failure_history",
+   "fieldtype": "Int",
+   "label": "Failure Count (Last 12 Months)"
+  },
+  {
+   "default": "365",
+   "description": "Mean Time Between Failures",
+   "fieldname": "mtbf",
+   "fieldtype": "Int",
+   "label": "MTBF (Days)"
+  },
+  {
+   "fieldname": "capacity_section",
+   "fieldtype": "Section Break",
+   "label": "AI Capacity Planning"
+  },
+  {
+   "fieldname": "utilization_trend",
+   "fieldtype": "Data",
+   "label": "Utilization Trend",
+   "read_only": 1
+  },
+  {
+   "fieldname": "predicted_full_date",
+   "fieldtype": "Date",
+   "label": "Predicted Full Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "recommendation",
+   "fieldtype": "Text",
+   "label": "AI Recommendation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "historical_utilization",
+   "fieldtype": "Table",
+   "label": "Historical Utilization",
+   "options": "Rack Utilization History"
+  },
+  {
+   "fieldname": "assets_section",
+   "fieldtype": "Section Break",
+   "label": "\ud83d\udce6 Rack Assets"
+  },
+  {
+   "fieldname": "rack_assets",
+   "fieldtype": "Table",
+   "label": "Assets in Rack",
+   "options": "Rack Asset Item"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-30 21:05:00.769127",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Rack",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

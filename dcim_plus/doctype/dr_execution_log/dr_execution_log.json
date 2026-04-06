@@ -1,0 +1,86 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-28 19:21:54.363605",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "plan",
+  "execution_time",
+  "executed_by",
+  "actual_rto",
+  "status",
+  "steps_executed",
+  "steps_failed",
+  "issues",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "plan",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "DR Plan",
+   "options": "DR Plan",
+   "reqd": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "execution_time",
+   "fieldtype": "Datetime",
+   "label": "Execution Time"
+  },
+  {
+   "fieldname": "executed_by",
+   "fieldtype": "Link",
+   "label": "Executed By",
+   "options": "User"
+  },
+  {
+   "fieldname": "actual_rto",
+   "fieldtype": "Int",
+   "label": "Actual RTO (minutes)"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Success\nPartial Success\nFailed\nAborted"
+  },
+  {
+   "fieldname": "steps_executed",
+   "fieldtype": "Int",
+   "label": "Steps Executed"
+  },
+  {
+   "fieldname": "steps_failed",
+   "fieldtype": "Int",
+   "label": "Steps Failed"
+  },
+  {
+   "fieldname": "issues",
+   "fieldtype": "Text",
+   "label": "Issues Encountered"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-28 20:45:54.036568",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "DR Execution Log",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -5,14 +5,14 @@ def get_heatmap_data():
     """Return data for Live Power & Thermal Heatmap"""
     try:
         racks = frappe.get_all("Rack",
-            fields=["name as rack_name", "room", "used_u", "rack_height"],
+            fields=["name as rack_name", "room"],
             filters={"status": ["!=", "Maintenance"]},
             order_by="name"
         )
 
         data = []
         for rack in racks:
-            # Get latest temperature
+            # Get temperature
             temp = frappe.get_all("Temperature Sensor",
                 fields=["temperature"],
                 filters={"rack": rack.name},
@@ -33,11 +33,28 @@ def get_heatmap_data():
                 "rack_name": rack.rack_name,
                 "temperature": round(temperature, 1),
                 "load_percentage": round(load_percentage, 1),
-                "room_name": rack.room
+                "room_name": rack.room or "N/A"
             })
 
         return data
 
     except Exception as e:
-        frappe.log_error(frappe.get_traceback(), "Heatmap Data Error")
+        frappe.log_error(frappe.get_traceback(), "Heatmap API Error")
         return []
+import frappe
+
+@frappe.whitelist(allow_guest=True)
+def get_dc_equipment():
+
+    equipment = frappe.get_all(
+        "DC Equipment",
+        fields=[
+            "equipment_name",
+            "equipment_type",
+            "x_position",
+            "z_position",
+            "room"
+        ]
+    )
+
+    return equipment

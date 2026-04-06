@@ -1,0 +1,80 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-28 19:21:28.259763",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "step_number",
+  "action",
+  "description",
+  "estimated_time",
+  "responsible_role",
+  "automated",
+  "completed"
+ ],
+ "fields": [
+  {
+   "fieldname": "step_number",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Step Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "action",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Action",
+   "options": "Notification\nPower Transfer\nStart Generator\nSwitch to Backup\nIsolate Zone\nFailover\nData Restore\nVerify Systems\nNotify Stakeholders",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "label": "Description",
+   "reqd": 1
+  },
+  {
+   "default": "5",
+   "fieldname": "estimated_time",
+   "fieldtype": "Int",
+   "label": "Estimated Time (minutes)"
+  },
+  {
+   "fieldname": "responsible_role",
+   "fieldtype": "Data",
+   "label": "Responsible Role"
+  },
+  {
+   "default": "0",
+   "fieldname": "automated",
+   "fieldtype": "Check",
+   "label": "Automated"
+  },
+  {
+   "default": "0",
+   "fieldname": "completed",
+   "fieldtype": "Check",
+   "label": "Completed",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-03-28 19:21:28.259763",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "DR Recovery Step",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

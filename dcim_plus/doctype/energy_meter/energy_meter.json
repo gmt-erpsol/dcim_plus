@@ -1,0 +1,224 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-26 14:41:44.770034",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "meter_name",
+  "zone",
+  "reading",
+  "unit",
+  "column_break_kanl",
+  "last_reading",
+  "status",
+  "manufacturer",
+  "model",
+  "serial",
+  "column_break_qlxw",
+  "description",
+  "rack",
+  "cost_section",
+  "cost_per_kwh",
+  "hourly_cost",
+  "daily_cost",
+  "weekly_cost",
+  "monthly_cost",
+  "yearly_cost",
+  "peak_demand",
+  "peak_demand_time"
+ ],
+ "fields": [
+  {
+   "default": "EM-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Naming Series",
+   "options": "EM-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "meter_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Meter Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "zone",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Zone",
+   "options": "Facility Zone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reading",
+   "fieldtype": "Float",
+   "label": "Reading"
+  },
+  {
+   "default": "kWh",
+   "fieldname": "unit",
+   "fieldtype": "Data",
+   "label": "Unit"
+  },
+  {
+   "fieldname": "last_reading",
+   "fieldtype": "Datetime",
+   "label": "Last Reading"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Active\nFault",
+   "reqd": 1
+  },
+  {
+   "fieldname": "manufacturer",
+   "fieldtype": "Data",
+   "label": "Manufacturer"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model"
+  },
+  {
+   "fieldname": "serial",
+   "fieldtype": "Data",
+   "label": "Serial"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_kanl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qlxw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rack",
+   "fieldtype": "Link",
+   "label": "Rack",
+   "options": "Rack"
+  },
+  {
+   "fieldname": "cost_section",
+   "fieldtype": "Section Break",
+   "label": "Energy Cost"
+  },
+  {
+   "default": "0.12",
+   "fieldname": "cost_per_kwh",
+   "fieldtype": "Currency",
+   "label": "Cost per kWh ($)"
+  },
+  {
+   "fieldname": "hourly_cost",
+   "fieldtype": "Currency",
+   "label": "Hourly Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "daily_cost",
+   "fieldtype": "Currency",
+   "label": "Daily Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "weekly_cost",
+   "fieldtype": "Currency",
+   "label": "Weekly Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "monthly_cost",
+   "fieldtype": "Currency",
+   "label": "Monthly Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "yearly_cost",
+   "fieldtype": "Currency",
+   "label": "Yearly Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "peak_demand",
+   "fieldtype": "Float",
+   "label": "Peak Demand (kW)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "peak_demand_time",
+   "fieldtype": "Datetime",
+   "label": "Peak Demand Time",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-28 20:54:28.288741",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Energy Meter",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

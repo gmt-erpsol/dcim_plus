@@ -1,0 +1,325 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:full_name",
+ "creation": "2026-03-26 16:23:49.759400",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_identification",
+  "full_name",
+  "contact_number",
+  "visitor_id",
+  "company_name",
+  "visit_purpose",
+  "column_break_biwx",
+  "entry_time",
+  "exit_time",
+  "duration",
+  "host_department",
+  "column_break_1",
+  "purpose_description",
+  "visitor_signature",
+  "section_access",
+  "areas_to_visit",
+  "escort_required",
+  "escort_person",
+  "badge_issued",
+  "badge_number",
+  "column_break_security",
+  "personal_devices",
+  "device_description",
+  "safety_briefing",
+  "access_level",
+  "section_items",
+  "items_brought",
+  "items_taken_out",
+  "section_status",
+  "status",
+  "remarks",
+  "column_break_status",
+  "completed_on",
+  "completed_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_identification",
+   "fieldtype": "Section Break",
+   "label": "\ud83c\udfab VISITOR IDENTIFICATION"
+  },
+  {
+   "description": "Official ID or Passport Number",
+   "fieldname": "visitor_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Visitor ID / Passport Number"
+  },
+  {
+   "description": "As per identification document",
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Full Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Select",
+   "label": "Company / Organization",
+   "options": "Awash\nExternal"
+  },
+  {
+   "fieldname": "contact_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Contact Number"
+  },
+  {
+   "fieldname": "visit_purpose",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Purpose of Visit",
+   "options": "Tape Change\nMaintenance\nInstallation\nInspection\nMeeting\nDelivery\nInterview\nEmergency\nOther",
+   "reqd": 1
+  },
+  {
+   "description": "Please describe the reason for your visit",
+   "fieldname": "purpose_description",
+   "fieldtype": "Text",
+   "label": "Detailed Purpose",
+   "reqd": 1
+  },
+  {
+   "fieldname": "host_department",
+   "fieldtype": "Select",
+   "label": "Host Department",
+   "options": "DBA\nNetwork\nServer & Storage\nVendor\nIT Security\nOther"
+  },
+  {
+   "default": "Now",
+   "fieldname": "entry_time",
+   "fieldtype": "Datetime",
+   "label": "Entry Time",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "description": "To be filled on departure",
+   "fieldname": "exit_time",
+   "fieldtype": "Datetime",
+   "label": "Exit Time"
+  },
+  {
+   "description": "Auto-calculated on exit",
+   "fieldname": "duration",
+   "fieldtype": "Data",
+   "label": "Duration",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_access",
+   "fieldtype": "Section Break",
+   "label": "\ud83d\udd12 ACCESS & SECURITY"
+  },
+  {
+   "description": "Select zones that will be accessed",
+   "fieldname": "areas_to_visit",
+   "fieldtype": "Table",
+   "label": "Areas to Visit",
+   "options": "Visit Areas"
+  },
+  {
+   "default": "1",
+   "fieldname": "escort_required",
+   "fieldtype": "Check",
+   "label": "Escort Required"
+  },
+  {
+   "depends_on": "eval:doc.escort_required == 1",
+   "fieldname": "escort_person",
+   "fieldtype": "Link",
+   "label": "Assigned Escort",
+   "options": "User"
+  },
+  {
+   "default": "Yes",
+   "fieldname": "badge_issued",
+   "fieldtype": "Select",
+   "label": "Visitor Badge Issued",
+   "options": "Yes\nNo\nN/A"
+  },
+  {
+   "depends_on": "eval:doc.badge_issued == 'Yes'",
+   "fieldname": "badge_number",
+   "fieldtype": "Data",
+   "label": "Badge Number"
+  },
+  {
+   "fieldname": "column_break_security",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "No",
+   "fieldname": "personal_devices",
+   "fieldtype": "Select",
+   "label": "Personal Devices Allowed",
+   "options": "Yes\nNo\nWith Restrictions"
+  },
+  {
+   "depends_on": "eval:doc.personal_devices != 'No'",
+   "fieldname": "device_description",
+   "fieldtype": "Text",
+   "label": "Device Description (if any)"
+  },
+  {
+   "default": "1",
+   "fieldname": "safety_briefing",
+   "fieldtype": "Check",
+   "label": "Safety Briefing Completed"
+  },
+  {
+   "default": "Low (Reception Only)",
+   "fieldname": "access_level",
+   "fieldtype": "Select",
+   "label": "Overall Access Level",
+   "options": "Low (Reception Only)\nMedium (Data Center Floor)\nHigh (Server Rooms)\nCritical (Restricted Areas)"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_items",
+   "fieldtype": "Section Break",
+   "label": "\ud83d\udce6 ITEMS & EQUIPMENT"
+  },
+  {
+   "fieldname": "items_brought",
+   "fieldtype": "Table",
+   "label": "Items Brought In",
+   "options": "Visitor Items"
+  },
+  {
+   "fieldname": "items_taken_out",
+   "fieldtype": "Table",
+   "label": "Items Taken Out",
+   "options": "Visitor Items"
+  },
+  {
+   "description": "Please sign using mouse or touch screen",
+   "fieldname": "visitor_signature",
+   "fieldtype": "Signature",
+   "label": "Visitor Signature",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_status",
+   "fieldtype": "Section Break",
+   "label": "\ud83d\udcca STATUS & NOTES"
+  },
+  {
+   "default": "Inside",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Visitor Status",
+   "options": "Inside\nExited\nOverstayed\nBlacklisted"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Security Remarks"
+  },
+  {
+   "fieldname": "column_break_status",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "completed_on",
+   "fieldtype": "Datetime",
+   "label": "Completed On"
+  },
+  {
+   "fieldname": "completed_by",
+   "fieldtype": "Link",
+   "label": "Completed By",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_biwx",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-26 16:39:41.631504",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Visitor Log",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Security",
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Operator"
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

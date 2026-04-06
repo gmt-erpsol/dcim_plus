@@ -1,0 +1,386 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-26 18:08:08.074019",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "avr_name",
+  "avr_tag",
+  "zone",
+  "room",
+  "rack",
+  "column_break_1",
+  "manufacturer",
+  "model",
+  "serial_number",
+  "installation_date",
+  "section_electrical",
+  "rated_kva",
+  "rated_kw",
+  "input_voltage",
+  "output_voltage",
+  "voltage_range",
+  "frequency",
+  "column_break_electrical",
+  "efficiency",
+  "phase",
+  "regulation_type",
+  "response_time",
+  "section_operational",
+  "status",
+  "input_voltage_current",
+  "output_voltage_current",
+  "current_load",
+  "column_break_operational",
+  "temperature",
+  "alarm_status",
+  "last_maintenance",
+  "next_maintenance",
+  "section_connections",
+  "input_from",
+  "input_source",
+  "output_to",
+  "output_destination",
+  "column_break_connections",
+  "feeds",
+  "priority",
+  "section_documentation",
+  "warranty_expiry",
+  "technical_specs",
+  "user_manual",
+  "notes"
+ ],
+ "fields": [
+  {
+   "default": "AVR-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "AVR-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "avr_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "AVR Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "description": "Unique identifier for asset tracking",
+   "fieldname": "avr_tag",
+   "fieldtype": "Data",
+   "label": "Asset Tag"
+  },
+  {
+   "fieldname": "zone",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Zone",
+   "options": "Facility Zone",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "zone.room",
+   "fieldname": "room",
+   "fieldtype": "Link",
+   "label": "Room",
+   "options": "Room",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rack",
+   "fieldtype": "Link",
+   "label": "Rack",
+   "options": "Rack"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "manufacturer",
+   "fieldtype": "Data",
+   "label": "Manufacturer"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model"
+  },
+  {
+   "fieldname": "serial_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Serial Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "installation_date",
+   "fieldtype": "Date",
+   "label": "Installation Date"
+  },
+  {
+   "fieldname": "section_electrical",
+   "fieldtype": "Section Break",
+   "label": "\u26a1 Electrical Specifications"
+  },
+  {
+   "description": "Apparent power rating",
+   "fieldname": "rated_kva",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Rated Power (kVA)"
+  },
+  {
+   "description": "Real power rating",
+   "fieldname": "rated_kw",
+   "fieldtype": "Float",
+   "label": "Rated Power (kW)"
+  },
+  {
+   "fieldname": "input_voltage",
+   "fieldtype": "Float",
+   "label": "Input Voltage (V)"
+  },
+  {
+   "fieldname": "output_voltage",
+   "fieldtype": "Float",
+   "label": "Output Voltage (V)"
+  },
+  {
+   "description": "e.g., \u00b15% to \u00b115%",
+   "fieldname": "voltage_range",
+   "fieldtype": "Data",
+   "label": "Voltage Regulation Range"
+  },
+  {
+   "default": "50",
+   "fieldname": "frequency",
+   "fieldtype": "Float",
+   "label": "Frequency (Hz)"
+  },
+  {
+   "fieldname": "column_break_electrical",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "efficiency",
+   "fieldtype": "Percent",
+   "label": "Efficiency (%)"
+  },
+  {
+   "fieldname": "phase",
+   "fieldtype": "Select",
+   "label": "Phase",
+   "options": "Single Phase\nThree Phase"
+  },
+  {
+   "fieldname": "regulation_type",
+   "fieldtype": "Select",
+   "label": "Regulation Type",
+   "options": "Servo Motor\nStatic\nTap Switching"
+  },
+  {
+   "description": "e.g., 10ms",
+   "fieldname": "response_time",
+   "fieldtype": "Data",
+   "label": "Response Time"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_operational",
+   "fieldtype": "Section Break",
+   "label": "\ud83d\udcca Operational Status"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Operational Status",
+   "options": "Active\nStandby\nMaintenance\nFault\nOffline",
+   "reqd": 1
+  },
+  {
+   "description": "Real-time monitoring",
+   "fieldname": "input_voltage_current",
+   "fieldtype": "Float",
+   "label": "Current Input Voltage (V)"
+  },
+  {
+   "fieldname": "output_voltage_current",
+   "fieldtype": "Float",
+   "label": "Current Output Voltage (V)"
+  },
+  {
+   "fieldname": "current_load",
+   "fieldtype": "Percent",
+   "label": "Current Load (%)"
+  },
+  {
+   "fieldname": "column_break_operational",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "temperature",
+   "fieldtype": "Float",
+   "label": "Temperature (\u00b0C)"
+  },
+  {
+   "default": "Normal",
+   "fieldname": "alarm_status",
+   "fieldtype": "Select",
+   "label": "Alarm Status",
+   "options": "Normal\nOver Voltage\nUnder Voltage\nOver Temperature\nFault"
+  },
+  {
+   "fieldname": "last_maintenance",
+   "fieldtype": "Date",
+   "label": "Last Maintenance"
+  },
+  {
+   "fieldname": "next_maintenance",
+   "fieldtype": "Date",
+   "label": "Next Maintenance"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_connections",
+   "fieldtype": "Section Break",
+   "label": "\ud83d\udd0c Power Distribution"
+  },
+  {
+   "fieldname": "input_from",
+   "fieldtype": "Select",
+   "label": "Input Source Type",
+   "options": "Generator\nUPS\nGrid\nPower Feed"
+  },
+  {
+   "fieldname": "input_source",
+   "fieldtype": "Dynamic Link",
+   "label": "Input Source",
+   "options": "input_from"
+  },
+  {
+   "fieldname": "output_to",
+   "fieldtype": "Select",
+   "label": "Output Destination Type",
+   "options": "UPS\nPDU\nPower Feed\nDirect Load"
+  },
+  {
+   "fieldname": "output_destination",
+   "fieldtype": "Dynamic Link",
+   "label": "Output Destination",
+   "options": "output_to"
+  },
+  {
+   "fieldname": "column_break_connections",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "feeds",
+   "fieldtype": "Table",
+   "label": "Connected Power Feeds",
+   "options": "Power Feed Connection"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "Primary\nSecondary\nBackup"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_documentation",
+   "fieldtype": "Section Break",
+   "label": "\ud83d\udcc4 Documentation"
+  },
+  {
+   "fieldname": "warranty_expiry",
+   "fieldtype": "Date",
+   "label": "Warranty Expiry"
+  },
+  {
+   "fieldname": "technical_specs",
+   "fieldtype": "Attach",
+   "label": "Technical Specifications"
+  },
+  {
+   "fieldname": "user_manual",
+   "fieldtype": "Attach",
+   "label": "User Manual"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes / Remarks"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-02 16:51:04.783664",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "AVR",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Technician",
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

@@ -1,0 +1,234 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-26 16:58:12.597267",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "port_name",
+  "device_type",
+  "device",
+  "port_type",
+  "speed",
+  "status",
+  "vlan",
+  "column_break_port",
+  "mac_address",
+  "ip_address",
+  "connected_to_type",
+  "connected_to",
+  "connected_port",
+  "section_break_port_specs",
+  "duplex",
+  "mtu",
+  "utilization",
+  "last_checked",
+  "section_break_port_notes",
+  "description",
+  "notes"
+ ],
+ "fields": [
+  {
+   "default": "PRT-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "PRT-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "port_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Port Name / Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "device_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Device Type",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "device",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Device",
+   "options": "device_type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "port_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Port Type",
+   "options": "Ethernet\nFiber\nSFP\nQSFP\nConsole\nUSB\nPower",
+   "reqd": 1
+  },
+  {
+   "fieldname": "speed",
+   "fieldtype": "Select",
+   "label": "Speed",
+   "options": "10 Mbps\n100 Mbps\n1 Gbps\n10 Gbps\n25 Gbps\n40 Gbps\n100 Gbps"
+  },
+  {
+   "default": "Down",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Up\nDown\nDisabled\nFaulty",
+   "reqd": 1
+  },
+  {
+   "description": "VLAN number or range",
+   "fieldname": "vlan",
+   "fieldtype": "Data",
+   "label": "VLAN ID"
+  },
+  {
+   "fieldname": "column_break_port",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mac_address",
+   "fieldtype": "Data",
+   "label": "MAC Address"
+  },
+  {
+   "fieldname": "ip_address",
+   "fieldtype": "Data",
+   "label": "IP Address"
+  },
+  {
+   "fieldname": "connected_to_type",
+   "fieldtype": "Link",
+   "label": "Connected To Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "connected_to",
+   "fieldtype": "Dynamic Link",
+   "label": "Connected To",
+   "options": "connected_to_type"
+  },
+  {
+   "fieldname": "connected_port",
+   "fieldtype": "Data",
+   "label": "Connected Port"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_port_specs",
+   "fieldtype": "Section Break",
+   "label": "Port Specifications"
+  },
+  {
+   "fieldname": "duplex",
+   "fieldtype": "Select",
+   "label": "Duplex",
+   "options": "Half\nFull\nAuto"
+  },
+  {
+   "fieldname": "mtu",
+   "fieldtype": "Int",
+   "label": "MTU"
+  },
+  {
+   "fieldname": "utilization",
+   "fieldtype": "Percent",
+   "label": "Current Utilization (%)"
+  },
+  {
+   "fieldname": "last_checked",
+   "fieldtype": "Datetime",
+   "label": "Last Checked"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_port_notes",
+   "fieldtype": "Section Break",
+   "label": "Additional Information"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Port Description"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-26 16:58:12.597267",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Port",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Network Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

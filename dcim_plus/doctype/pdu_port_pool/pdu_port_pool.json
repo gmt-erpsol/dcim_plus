@@ -1,0 +1,71 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-28 12:45:31.780203",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "pdu",
+  "asset_type",
+  "available_ports",
+  "used_ports",
+  "power_capacity",
+  "current_load"
+ ],
+ "fields": [
+  {
+   "fieldname": "pdu",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "PDU",
+   "options": "PDU",
+   "reqd": 1
+  },
+  {
+   "default": "All",
+   "fieldname": "asset_type",
+   "fieldtype": "Select",
+   "label": "Compatible Asset Type",
+   "options": "Server\nSwitch\nStorage\nFirewall\nRouter\nLoad Balancer\nUPS\nAll"
+  },
+  {
+   "fieldname": "available_ports",
+   "fieldtype": "Table",
+   "label": "Available Ports",
+   "options": "PDU Port Entry"
+  },
+  {
+   "fieldname": "used_ports",
+   "fieldtype": "Table",
+   "label": "Used Ports",
+   "options": "PDU Port Entry"
+  },
+  {
+   "default": "3000",
+   "fieldname": "power_capacity",
+   "fieldtype": "Float",
+   "label": "Power Capacity (W)"
+  },
+  {
+   "fieldname": "current_load",
+   "fieldtype": "Float",
+   "label": "Current Load (W)",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-28 12:45:31.780203",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "PDU Port Pool",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

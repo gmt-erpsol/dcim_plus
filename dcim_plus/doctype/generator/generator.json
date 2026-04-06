@@ -1,0 +1,176 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-26 14:37:09.509610",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "generator_name",
+  "zone",
+  "capacity_kw",
+  "runtime_hours",
+  "fuel_level",
+  "column_break_euvq",
+  "status",
+  "last_service",
+  "manufacturer",
+  "model",
+  "serial",
+  "snmp_section",
+  "snmp_host",
+  "snmp_community",
+  "last_snmp_poll"
+ ],
+ "fields": [
+  {
+   "default": "GEN-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Naming Series",
+   "options": "GEN-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "generator_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Generator Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "zone",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Zone",
+   "options": "Facility Zone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "capacity_kw",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Capacity KW",
+   "reqd": 1
+  },
+  {
+   "fieldname": "fuel_level",
+   "fieldtype": "Float",
+   "label": "Fuel Level (%)"
+  },
+  {
+   "fieldname": "runtime_hours",
+   "fieldtype": "Float",
+   "label": "Runtime Hours"
+  },
+  {
+   "default": "Stopped",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Running\nStopped",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_service",
+   "fieldtype": "Date",
+   "label": "Last Service"
+  },
+  {
+   "fieldname": "manufacturer",
+   "fieldtype": "Data",
+   "label": "Manufacturer"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model"
+  },
+  {
+   "fieldname": "serial",
+   "fieldtype": "Data",
+   "label": "Serial"
+  },
+  {
+   "fieldname": "column_break_euvq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "snmp_section",
+   "fieldtype": "Section Break",
+   "label": "\ud83c\udf10 SNMP Monitoring"
+  },
+  {
+   "fieldname": "snmp_host",
+   "fieldtype": "Data",
+   "label": "SNMP IP Address"
+  },
+  {
+   "default": "public",
+   "fieldname": "snmp_community",
+   "fieldtype": "Data",
+   "label": "SNMP Community"
+  },
+  {
+   "fieldname": "last_snmp_poll",
+   "fieldtype": "Datetime",
+   "label": "Last SNMP Poll",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-02 20:29:35.606945",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "Generator",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DC Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

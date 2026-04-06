@@ -1,0 +1,159 @@
+/* DCIM PLUS - Aggressive CSS Override */
+
+/* Force dark theme on everything */
+body, .page-container, .layout-main, .desk-container {
+    background-color: #0A0C12 !important;
+    background: #0A0C12 !important;
+}
+
+/* Navbar Styling */
+.navbar, .navbar.navbar-default {
+    background: linear-gradient(135deg, #0F1117, #0A0C12) !important;
+    border-bottom: 3px solid #3B82F6 !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+}
+
+.navbar-brand, .logo, .brand {
+    background: linear-gradient(135deg, #3B82F6, #10B981) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    font-weight: 800 !important;
+}
+
+/* Sidebar */
+.sidebar, .desk-sidebar {
+    background: linear-gradient(180deg, #0F1117, #0A0C12) !important;
+    border-right: 1px solid #1E293B !important;
+}
+
+.sidebar-item, .desk-sidebar-item {
+    border-radius: 10px !important;
+    margin: 5px 12px !important;
+    transition: all 0.2s !important;
+}
+
+.sidebar-item:hover, .desk-sidebar-item:hover {
+    background: #3B82F6 !important;
+    transform: translateX(5px) !important;
+}
+
+.sidebar-item.active, .desk-sidebar-item.active {
+    background: linear-gradient(135deg, #3B82F6, #2563EB) !important;
+    box-shadow: 0 4px 12px rgba(59,130,246,0.4) !important;
+}
+
+/* All Buttons */
+.btn, .btn-sm, .btn-primary {
+    background: linear-gradient(135deg, #3B82F6, #2563EB) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 8px 20px !important;
+    color: white !important;
+}
+
+.btn-primary:hover, .btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 14px rgba(59,130,246,0.4) !important;
+}
+
+/* Cards */
+.card, .frappe-card, .list-row {
+    background: #1A1C23 !important;
+    border: 1px solid #2D2F36 !important;
+    border-radius: 16px !important;
+    margin-bottom: 16px !important;
+}
+
+.card:hover, .frappe-card:hover {
+    border-color: #3B82F6 !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3) !important;
+}
+
+/* Tables */
+.table, .list-table, .frappe-table {
+    background: #1A1C23 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+}
+
+.table thead th, .list-table thead th {
+    background: #0F1117 !important;
+    color: #10B981 !important;
+    font-weight: 600 !important;
+    border-bottom: 1px solid #2D2F36 !important;
+}
+
+.table tbody tr:hover, .list-table tbody tr:hover {
+    background: rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Form Controls */
+input, select, textarea, .form-control {
+    background: #0F1117 !important;
+    border: 1px solid #2D2F36 !important;
+    border-radius: 10px !important;
+    color: #E5E7EB !important;
+    padding: 10px !important;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #3B82F6 !important;
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.2) !important;
+    outline: none !important;
+}
+
+/* Modal */
+.modal .modal-content {
+    background: #1A1C23 !important;
+    border: 1px solid #2D2F36 !important;
+    border-radius: 20px !important;
+}
+
+.modal .modal-header {
+    background: #0F1117 !important;
+    border-bottom: 1px solid #2D2F36 !important;
+}
+
+.modal .modal-footer {
+    background: #0F1117 !important;
+    border-top: 1px solid #2D2F36 !important;
+}
+
+/* Dashboard Widgets */
+.widget, .dashboard-widget {
+    background: #1A1C23 !important;
+    border: 1px solid #2D2F36 !important;
+    border-radius: 16px !important;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: #E5E7EB !important;
+}
+
+p, span, div {
+    color: #E5E7EB !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px !important;
+    height: 10px !important;
+}
+
+::-webkit-scrollbar-track {
+    background: #0F1117 !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3B82F6 !important;
+    border-radius: 10px !important;
+}
+
+/* Footer */
+footer, .page-footer {
+    background: #0F1117 !important;
+    border-top: 1px solid #1E293B !important;
+    padding: 15px !important;
+}

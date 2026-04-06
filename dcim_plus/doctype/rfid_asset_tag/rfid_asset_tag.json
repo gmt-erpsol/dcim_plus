@@ -1,0 +1,100 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-28 16:57:04.031788",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "tag_id",
+  "asset",
+  "asset_type",
+  "asset_name",
+  "location",
+  "last_scanned",
+  "scanned_by",
+  "status",
+  "battery_level",
+  "signal_strength"
+ ],
+ "fields": [
+  {
+   "fieldname": "tag_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "RFID Tag ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "asset",
+   "fieldtype": "Link",
+   "label": "Associated Asset",
+   "options": "IT Asset"
+  },
+  {
+   "fetch_from": "asset.asset_type",
+   "fieldname": "asset_type",
+   "fieldtype": "Data",
+   "label": "Asset Type",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "asset.asset_name",
+   "fieldname": "asset_name",
+   "fieldtype": "Data",
+   "label": "Asset Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Current Location",
+   "options": "Room"
+  },
+  {
+   "fieldname": "last_scanned",
+   "fieldtype": "Datetime",
+   "label": "Last Scanned"
+  },
+  {
+   "fieldname": "scanned_by",
+   "fieldtype": "Link",
+   "label": "Scanned By",
+   "options": "User"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nInactive\nLost\nMaintenance"
+  },
+  {
+   "default": "100",
+   "fieldname": "battery_level",
+   "fieldtype": "Percent",
+   "label": "Battery Level"
+  },
+  {
+   "default": "-50",
+   "fieldname": "signal_strength",
+   "fieldtype": "Int",
+   "label": "Signal Strength (dBm)"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-28 16:57:04.031788",
+ "modified_by": "Administrator",
+ "module": "Dcim Plus",
+ "name": "RFID Asset Tag",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
