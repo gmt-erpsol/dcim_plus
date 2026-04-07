@@ -1,0 +1,41 @@
+/* DCIM Plus - Core Styles */
+body {
+    background: #0a0e27 !important;
+}
+
+/* Hide Frappe Native UI */
+.navbar,
+.page-head,
+.layout-sidebar,
+.sidebar,
+.col-sidebar,
+.footer,
+.page-footer {
+    display: none !important;
+}
+
+/* Full width content */
+.layout-main-section-wrapper,
+.layout-main-section,
+.page-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+}
+
+/* Custom card styling */
+.frappe-card,
+.card {
+    background: #0f1535 !important;
+    border: 1px solid #1a2350 !important;
+    border-radius: 8px !important;
+}
+
+/* Custom text colors */
+h1, h2, h3, h4, .title {
+    color: #e0e0e0 !important;
+}
+
+/* Table styling */
+.table > tbody > tr > td {
+    color: #c0c0c0 !important;
+}

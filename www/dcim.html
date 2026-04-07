@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCIM PLUS - Enterprise Data Center Management</title>
+    <link rel="stylesheet" href="/assets/dcim_plus/css/app.css">
+</head>
+<body>
+    <div id="dcim-shell">
+        <aside id="dcim-sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">🏢</span>
+                    <span class="logo-text">DCIM PLUS</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">DATA CENTER</div>
+                <a class="nav-item" data-workspace="⚡ Power Management">
+                    <span class="nav-icon">⚡</span>
+                    <span class="nav-text">Power Management</span>
+                </a>
+                <a class="nav-item" data-workspace="❄️ Cooling Infrustructure">
+                    <span class="nav-icon">❄️</span>
+                    <span class="nav-text">Cooling</span>
+                </a>
+                <a class="nav-item" data-workspace="💻 IT Asset Management">
+                    <span class="nav-icon">💻</span>
+                    <span class="nav-text">IT Assets</span>
+                </a>
+                <div class="nav-section">OPERATIONS</div>
+                <a class="nav-item" data-workspace="🛠️ Operations">
+                    <span class="nav-icon">🛠️</span>
+                    <span class="nav-text">Operations</span>
+                </a>
+                <a class="nav-item" data-workspace="👥 Shift & Compliance">
+                    <span class="nav-icon">👥</span>
+                    <span class="nav-text">Shift & Compliance</span>
+                </a>
+                <a class="nav-item" data-workspace="📋 Vendor & Audit">
+                    <span class="nav-icon">📋</span>
+                    <span class="nav-text">Vendor & Audit</span>
+                </a>
+                <div class="nav-section">SECURITY</div>
+                <a class="nav-item" data-workspace="🔒 Security & Safety">
+                    <span class="nav-icon">🔒</span>
+                    <span class="nav-text">Security & Safety</span>
+                </a>
+                <div class="nav-section">INTELLIGENCE</div>
+                <a class="nav-item" data-workspace="Smart DC">
+                    <span class="nav-icon">🧠</span>
+                    <span class="nav-text">Smart DC</span>
+                </a>
+                <a class="nav-item" data-workspace="📊 Infrastructure Management">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Infrastructure</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info" id="userInfo">
+                    <div class="user-avatar" id="userAvatar">A</div>
+                    <div class="user-details">
+                        <span id="userName">Loading...</span>
+                        <small>DCIM Operator</small>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <main id="dcim-main">
+            <header id="dcim-topbar">
+                <div class="topbar-left">
+                    <button id="menuToggle" class="menu-toggle">☰</button>
+                    <h1 id="pageTitle">DCIM PLUS</h1>
+                </div>
+                <div class="topbar-right">
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        <span>System Online</span>
+                    </div>
+                    <button id="logoutBtn" class="logout-btn">🚪 Logout</button>
+                </div>
+            </header>
+            <div id="workspace-container">
+                <iframe id="workspace-frame" src="/app/welcome-workspace"></iframe>
+            </div>
+        </main>
+    </div>
+    <script src="/assets/dcim_plus/js/app.js"></script>
+</body>
+</html>

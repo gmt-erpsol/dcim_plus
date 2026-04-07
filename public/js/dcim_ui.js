@@ -1,60 +1,90 @@
-/* ============================================
-   DCIM PLUS - UI ENHANCEMENTS
-   Non-intrusive, Frappe-friendly
-   ============================================ */
+// DCIM Plus - Custom UI Enhancements
 
 frappe.ready(function() {
-    console.log("🎨 DCIM PLUS UI Enhancements Loaded");
+    // Add custom CSS class to body
+    $('body').addClass('dcim-plus-theme');
     
-    // Add custom footer branding (doesn't remove existing)
-    addCustomFooter();
+    // Custom dashboard widgets
+    if (frappe.get_route()[0] === "dashboard") {
+        addDcimWidgets();
+    }
     
-    // Enhance sidebar with smooth animations
-    enhanceSidebar();
-    
-    // Add live datetime to navbar (optional)
-    addLiveDateTime();
+    // Real-time status updates for assets
+    if (frappe.get_route()[0] === "Form" && frappe.get_route()[1] === "IT Asset") {
+        startAssetStatusPolling();
+    }
 });
 
-function addCustomFooter() {
-    // Only add if not already present
-    if (document.querySelector('.dcim-footer-brand')) return;
+// Add DCIM specific widgets to dashboard
+function addDcimWidgets() {
+    // Add power capacity widget
+    frappe.call({
+        method: "dcim_theme.api.get_power_summary",
+        callback: function(r) {
+            if (r.message) {
+                // Render power widget
+                renderPowerWidget(r.message);
+            }
+        }
+    });
     
-    const footer = document.querySelector('footer');
-    if (footer) {
-        const brandSpan = document.createElement('div');
-        brandSpan.className = 'dcim-footer-brand';
-        brandSpan.style.cssText = 'font-size: 10px; color: #6B7280; margin-top: 8px; text-align: center;';
-        brandSpan.innerHTML = '🏭 DCIM PLUS | Powered by Frappe | © Awash Bank';
-        footer.appendChild(brandSpan);
-    }
-}
-
-function enhanceSidebar() {
-    const items = document.querySelectorAll('.sidebar-item');
-    items.forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            this.style.transition = 'all 0.2s ease';
-        });
+    // Add temperature monitoring widget
+    frappe.call({
+        method: "dcim_theme.api.get_temperature_summary",
+        callback: function(r) {
+            if (r.message) {
+                renderTemperatureWidget(r.message);
+            }
+        }
     });
 }
 
-function addLiveDateTime() {
-    if (document.querySelector('.dcim-datetime')) return;
-    
-    const navbar = document.querySelector('.navbar-collapse');
-    if (navbar) {
-        const dateSpan = document.createElement('div');
-        dateSpan.className = 'dcim-datetime';
-        dateSpan.style.cssText = 'font-size: 11px; color: #6B7280; margin-left: auto; padding: 0 15px;';
-        
-        function updateTime() {
-            const now = new Date();
-            dateSpan.innerHTML = now.toLocaleTimeString('en-US', { hour12: false });
-        }
-        updateTime();
-        setInterval(updateTime, 1000);
-        
-        navbar.appendChild(dateSpan);
-    }
+// Real-time asset monitoring
+function startAssetStatusPolling() {
+    setInterval(function() {
+        frappe.call({
+            method: "dcim_theme.api.get_asset_status",
+            args: {
+                asset_name: frappe.get_route()[2]
+            },
+            callback: function(r) {
+                if (r.message) {
+                    updateAssetStatusIndicators(r.message);
+                }
+            }
+        });
+    }, 30000); // Update every 30 seconds
 }
+
+// Custom form buttons for DCIM operations
+frappe.ui.form.on('IT Asset', {
+    refresh: function(frm) {
+        // Add custom buttons
+        frm.add_custom_button(__('View Power Path'), function() {
+            showPowerPathDiagram(frm.doc.name);
+        });
+        
+        frm.add_custom_button(__('Generate QR Code'), function() {
+            generateAssetQR(frm.doc.name);
+        });
+        
+        frm.add_custom_button(__('Maintenance History'), function() {
+            showMaintenanceHistory(frm.doc.name);
+        });
+    },
+    
+    rack: function(frm) {
+        // Auto-populate position when rack is selected
+        if (frm.doc.rack) {
+            frappe.call({
+                method: "dcim_theme.api.get_next_available_u",
+                args: { rack: frm.doc.rack },
+                callback: function(r) {
+                    if (r.message) {
+                        frm.set_value("position_u", r.message);
+                    }
+                }
+            });
+        }
+    }
+});

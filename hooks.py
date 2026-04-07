@@ -21,10 +21,14 @@ website_route_rules = [
 
 # Custom login page
 login_page = "login"
+# Custom UI Shell
+home_page = "dcim"
+web_include_css = ["/assets/dcim_plus/css/app.css"]
+web_include_js = ["/assets/dcim_plus/js/app.js"]
 
-# ============================================
-# DCIM PLUS - CUSTOM UI
-# ============================================
+# DCIM Plus Custom UI
 
-app_include_css = "dcim_theme.css"
-app_include_js = "dcim_ui.js"
+# Custom UI Shell
+home_page = "dcim"
+web_include_css = ["/assets/dcim_plus/css/app.css"]
+web_include_js = ["/assets/dcim_plus/js/app.js"]
