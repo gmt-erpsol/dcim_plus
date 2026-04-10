@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DCIM Test</title>
+    <!-- Try different paths for Frappe JS -->
+    <script src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
+    <script src="/assets/js/frappe-web.min.js"></script>
+    <script src="/assets/frappe/js/frappe-web.min.js"></script>
+    <style>
+        body { font-family: Arial; padding: 40px; background: #0a0e27; color: white; }
+        button { background: #2ecc71; color: white; padding: 10px 20px; border: none; cursor: pointer; margin: 5px; }
+        pre { background: #0f1535; padding: 10px; border-radius: 5px; margin-top: 20px; }
+        .success { color: #2ecc71; }
+        .error { color: #e74c3c; }
+    </style>
+</head>
+<body>
+    <h1>DCIM PLUS - Test Page</h1>
+    <div id="status">Testing Frappe connection...</div>
+    <div id="user-info"></div>
+    <div id="rack-count"></div>
+    <div id="asset-count"></div>
+    <button onclick="testFrappe()">Test Frappe Call</button>
+    <button onclick="window.location.href='/app'">Go to Frappe Desk</button>
+    <pre id="debug"></pre>
+
+    <script>
+        function log(msg, isError) {
+            const debug = document.getElementById('debug');
+            const color = isError ? '#e74c3c' : '#2ecc71';
+            debug.innerHTML += `<span style="color:${color}">${msg}</span>\n`;
+            console.log(msg);
+        }
+
+        log('Page loaded, checking Frappe...');
+        
+        // Check if frappe is defined after a short delay
+        setTimeout(function() {
+            if (typeof frappe !== 'undefined') {
+                log('✅ Frappe IS defined!', false);
+                document.getElementById('status').innerHTML = '<span class="success">✅ Frappe loaded successfully!</span>';
+                loadData();
+            } else {
+                log('❌ Frappe still NOT defined. Checking what is available...', true);
+                document.getElementById('status').innerHTML = '<span class="error">❌ Frappe not loaded. Check console.</span>';
+                
+                // Check what's available
+                if (typeof window.frappe === 'undefined') {
+                    log('window.frappe is undefined', true);
+                }
+                if (typeof $ !== 'undefined') {
+                    log('✅ jQuery is loaded', false);
+                } else {
+                    log('❌ jQuery not loaded', true);
+                }
+            }
+        }, 1000);
+        
+        function loadData() {
+            log('Loading user data...');
+            frappe.call({
+                method: "frappe.auth.get_logged_user",
+                callback: function(r) {
+                    log('✅ User: ' + r.message);
+                    document.getElementById('user-info').innerHTML = 'User: ' + r.message;
+                },
+                error: function(e) {
+                    log('❌ Error: ' + JSON.stringify(e), true);
+                }
+            });
+            
+            frappe.call({
+                method: "frappe.client.get_count",
+                args: { doctype: "Rack" },
+                callback: function(r) {
+                    log('✅ Racks: ' + r.message);
+                    document.getElementById('rack-count').innerHTML = 'Racks: ' + r.message;
+                }
+            });
+            
+            frappe.call({
+                method: "frappe.client.get_count",
+                args: { doctype: "IT Asset" },
+                callback: function(r) {
+                    log('✅ IT Assets: ' + r.message);
+                    document.getElementById('asset-count').innerHTML = 'IT Assets: ' + r.message;
+                }
+            });
+        }
+        
+        function testFrappe() {
+            if (typeof frappe !== 'undefined') {
+                log('Frappe is available!', false);
+                loadData();
+            } else {
+                log('Frappe not available yet!', true);
+            }
+        }
+    </script>
+</body>
+</html>

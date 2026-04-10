@@ -1,0 +1,472 @@
+{% extends "templates/web.html" %}
+
+{% block title %}DCIM PLUS - Executive Dashboard{% endblock %}
+
+{% block style %}
+<style>
+    /* Dark Theme with Yellow Accents - Deep Dark */
+    body {
+        background: #0a0b1a !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    
+    .dcim-container {
+        padding: 24px 32px;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #0a0b1a 0%, #0d0e2a 100%);
+    }
+    
+    /* Dashboard Header */
+    .dashboard-header {
+        margin-bottom: 32px;
+    }
+    
+    .dashboard-header h1 {
+        font-size: 28px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #ffd700, #ffaa00);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 8px;
+    }
+    
+    .dashboard-subtitle {
+        color: #8a94b8;
+        font-size: 14px;
+    }
+    
+    /* Stats Grid */
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        margin-bottom: 32px;
+    }
+    
+    .stat-card {
+        background: rgba(15, 21, 53, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 215, 0, 0.1);
+        border-radius: 20px;
+        padding: 24px;
+        transition: all 0.3s;
+        cursor: pointer;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 215, 0, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    
+    .stat-icon {
+        width: 48px;
+        height: 48px;
+        background: rgba(255, 215, 0, 0.1);
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+    }
+    
+    .stat-icon i {
+        font-size: 24px;
+        color: #ffd700;
+    }
+    
+    .stat-value {
+        font-size: 32px;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 8px;
+    }
+    
+    .stat-label {
+        font-size: 13px;
+        color: #8a94b8;
+    }
+    
+    /* Widgets Grid */
+    .widgets-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        margin-bottom: 32px;
+    }
+    
+    .widget {
+        background: rgba(15, 21, 53, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 215, 0, 0.1);
+        border-radius: 20px;
+        padding: 24px;
+    }
+    
+    .widget-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .progress-item {
+        margin-bottom: 20px;
+    }
+    
+    .progress-label {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        font-size: 13px;
+        color: #8a94b8;
+    }
+    
+    .progress-bar {
+        height: 6px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+        overflow: hidden;
+    }
+    
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #ffd700, #ffaa00);
+        border-radius: 3px;
+        transition: width 0.5s;
+    }
+    
+    /* 3D View */
+    .view-3d {
+        background: rgba(15, 21, 53, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 215, 0, 0.1);
+        border-radius: 20px;
+        padding: 24px;
+        text-align: center;
+    }
+    
+    .view-3d-content {
+        height: 250px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .btn-3d {
+        background: linear-gradient(135deg, #ffd700, #ffaa00);
+        color: #0a0b1a;
+        border: none;
+        padding: 10px 24px;
+        border-radius: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .btn-3d:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+    }
+    
+    /* Card Grid for Groups */
+    .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 24px;
+        margin-top: 20px;
+    }
+    
+    .beautiful-card {
+        background: rgba(15, 21, 53, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 215, 0, 0.1);
+        border-radius: 16px;
+        padding: 20px;
+        transition: all 0.3s;
+        cursor: pointer;
+    }
+    
+    .beautiful-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(255, 215, 0, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    
+    .card-icon {
+        width: 45px;
+        height: 45px;
+        background: rgba(255, 215, 0, 0.1);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+    }
+    
+    .card-icon i {
+        font-size: 22px;
+        color: #ffd700;
+    }
+    
+    .card-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 8px;
+    }
+    
+    .card-count {
+        font-size: 28px;
+        font-weight: 700;
+        color: #ffd700;
+        margin-bottom: 8px;
+    }
+    
+    .card-desc {
+        font-size: 12px;
+        color: #8a94b8;
+    }
+    
+    .fade-in {
+        animation: fadeIn 0.4s ease-out;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Loading */
+    .loading-spinner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 60px;
+        gap: 16px;
+    }
+    
+    .spinner {
+        width: 40px;
+        height: 40px;
+        border: 3px solid rgba(255, 215, 0, 0.1);
+        border-top-color: #ffd700;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+</style>
+{% endblock %}
+
+{% block page_content %}
+<div class="dcim-container" id="dcim-container">
+    <div class="loading-spinner">
+        <div class="spinner"></div>
+        <div style="color: #8a94b8;">Loading DCIM Dashboard...</div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // All 31 Smart DC Web Pages
+    const smartPages = [
+        { name: 'DCIM Plus Dashboard', route: '/gemta', icon: 'chart-line' },
+        { name: 'DCIM Dashboard', route: '/dcim', icon: 'tachometer-alt' },
+        { name: '3D Data Center Visualization', route: '/3d-data-center-visualization', icon: 'cube' },
+        { name: 'AI Capacity Planning', route: '/ai-capacity-planning-dashboard', icon: 'brain' },
+        { name: 'Disaster Recovery Dashboard', route: '/disaster-recovery-dashboard', icon: 'umbrella' },
+        { name: 'Power Management Dashboard', route: '/power-management-dashboard', icon: 'bolt' },
+        { name: 'Anomaly Detection', route: '/anomaly-detection', icon: 'chart-line' },
+        { name: 'Voice Control Assistant', route: '/voice-control-&-assistant', icon: 'microphone-alt' },
+        { name: 'Digital Twin Simulation', route: '/digital-twin-simulation-', icon: 'clone' },
+        { name: 'Live Power & Thermal Heatmap', route: '/live-power-&-thermal-heatmap', icon: 'fire' },
+        { name: 'Energy Cost Dashboard', route: '/energy-cost-dashboard', icon: 'dollar-sign' },
+        { name: 'Predictive Maintenance', route: '/predictive-maintenance-scheduling-dashboard', icon: 'chart-line' },
+        { name: 'Cable Visualization', route: '/cable-visualization-dashboard', icon: 'network-wired' },
+        { name: 'Compliance Dashboard', route: '/compliance-dashboard', icon: 'check-double' },
+        { name: 'Incident & Change Dashboard', route: '/incident-change-dashboard', icon: 'exclamation-triangle' },
+        { name: 'One-Click Provisioning', route: '/one-click-provisioning-dashboard', icon: 'rocket' }
+    ];
+
+    // All DocTypes by Group
+    const allDoctypes = {
+        infrastructure: ['Data Center', 'Facility Zone', 'Room', 'Rack', 'DC Equipment'],
+        itassets: ['IT Asset', 'Network Device', 'Cable', 'Port', 'IP Address Pool'],
+        power: ['UPS', 'PDU', 'Generator', 'Power Feed', 'Battery Bank', 'Energy Meter', 'MDB', 'Switchgear', 'Transformer', 'ATS', 'AVR'],
+        cooling: ['CRAC Unit', 'Temperature Sensor'],
+        security: ['Access Control Unit', 'Surveillance Camera', 'Smoke Detector', 'Water Leak Sensor', 'Fire System', 'Rodent Repellent System'],
+        operations: ['Work Order', 'Maintenance', 'Spare Part', 'Contract', 'Vendor'],
+        compliance: ['Shift Handover', 'Alarm Log', 'Environmental Log', 'Audit Log', 'Incident', 'Change Request'],
+        vendor: ['Vendor', 'Contract', 'Audit Log']
+    };
+
+    const iconMap = {
+        'Data Center': 'building', 'Rack': 'server', 'IT Asset': 'microchip', 'Generator': 'industry',
+        'UPS': 'battery-full', 'PDU': 'plug', 'CRAC Unit': 'snowflake', 'Temperature Sensor': 'thermometer-half',
+        'Work Order': 'clipboard-list', 'Vendor': 'truck', 'MDB': 'charging-station'
+    };
+
+    async function fetchCount(doctype) {
+        try {
+            const res = await frappe.call('frappe.client.get_count', { doctype: doctype });
+            return res.message || 0;
+        } catch(e) {
+            console.error(`Error fetching ${doctype}:`, e);
+            return 0;
+        }
+    }
+
+    async function renderDashboard() {
+        const container = document.getElementById('dcim-container');
+        
+        const [assets, racks, ups, generators] = await Promise.all([
+            fetchCount('IT Asset'), fetchCount('Rack'), fetchCount('UPS'), fetchCount('Generator')
+        ]);
+        
+        const html = `
+            <div class="fade-in">
+                <div class="dashboard-header">
+                    <h1>Executive Dashboard</h1>
+                    <div class="dashboard-subtitle">Welcome back, ${frappe.session.user}! Real-time data center overview</div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card" onclick="window.location.href='/app/it-asset'">
+                        <div class="stat-icon"><i class="fas fa-microchip"></i></div>
+                        <div class="stat-value">${assets}</div>
+                        <div class="stat-label">IT Assets</div>
+                    </div>
+                    <div class="stat-card" onclick="window.location.href='/app/rack'">
+                        <div class="stat-icon"><i class="fas fa-server"></i></div>
+                        <div class="stat-value">${racks}</div>
+                        <div class="stat-label">Racks</div>
+                    </div>
+                    <div class="stat-card" onclick="window.location.href='/app/ups'">
+                        <div class="stat-icon"><i class="fas fa-battery-full"></i></div>
+                        <div class="stat-value">${ups}</div>
+                        <div class="stat-label">UPS Systems</div>
+                    </div>
+                    <div class="stat-card" onclick="window.location.href='/app/generator'">
+                        <div class="stat-icon"><i class="fas fa-industry"></i></div>
+                        <div class="stat-value">${generators}</div>
+                        <div class="stat-label">Generators</div>
+                    </div>
+                </div>
+                
+                <div class="widgets-grid">
+                    <div class="widget">
+                        <div class="widget-title"><i class="fas fa-chart-line"></i> Power Utilization</div>
+                        <div class="progress-item">
+                            <div class="progress-label"><span>Current Load</span><span>342 kW</span></div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 57%"></div></div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label"><span>Peak Load</span><span>456 kW</span></div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 76%"></div></div>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <div class="widget-title"><i class="fas fa-thermometer-half"></i> Temperature</div>
+                        <div class="progress-item">
+                            <div class="progress-label"><span>Average</span><span>22.5°C</span></div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 45%"></div></div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label"><span>Hot Spot</span><span>26.3°C</span></div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 60%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="view-3d">
+                    <div class="widget-title"><i class="fas fa-cube"></i> 3D Data Center View</div>
+                    <div class="view-3d-content">
+                        <i class="fas fa-cube" style="font-size: 48px; color: #ffd700; opacity: 0.5;"></i>
+                        <button class="btn-3d" onclick="window.location.href='/3d-data-center-visualization'">Launch 3D Viewer →</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        container.innerHTML = html;
+    }
+
+    async function renderGroupView(groupName, groupTitle, doctypes) {
+        const container = document.getElementById('dcim-container');
+        container.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><div style="color:#8a94b8;">Loading...</div></div>';
+        
+        let cardsHtml = '';
+        for (const dt of doctypes) {
+            const count = await fetchCount(dt);
+            const icon = iconMap[dt] || 'folder';
+            cardsHtml += `
+                <div class="beautiful-card" onclick="window.location.href='/app/${dt.toLowerCase().replace(/ /g, '-')}'">
+                    <div class="card-icon"><i class="fas fa-${icon}"></i></div>
+                    <div class="card-title">${dt}</div>
+                    <div class="card-count">${count}</div>
+                    <div class="card-desc">Manage ${dt} records</div>
+                </div>
+            `;
+        }
+        
+        const html = `
+            <div class="fade-in">
+                <div class="dashboard-header">
+                    <h1>${groupTitle}</h1>
+                    <div class="dashboard-subtitle">Manage all ${groupTitle.toLowerCase()}</div>
+                </div>
+                <div class="card-grid">${cardsHtml}</div>
+            </div>
+        `;
+        container.innerHTML = html;
+    }
+
+    function renderSmartDC() {
+        const container = document.getElementById('dcim-container');
+        
+        let cardsHtml = '';
+        for (const page of smartPages) {
+            cardsHtml += `
+                <div class="beautiful-card" onclick="window.location.href='${page.route}'">
+                    <div class="card-icon"><i class="fas fa-${page.icon}"></i></div>
+                    <div class="card-title">${page.name}</div>
+                    <div class="card-desc">Launch Smart DC application</div>
+                </div>
+            `;
+        }
+        
+        const html = `
+            <div class="fade-in">
+                <div class="dashboard-header">
+                    <h1>🧠 Smart DC</h1>
+                    <div class="dashboard-subtitle">AI-powered data center applications</div>
+                </div>
+                <div class="card-grid">${cardsHtml}</div>
+            </div>
+        `;
+        container.innerHTML = html;
+    }
+
+    // Initialize based on URL parameter or default to dashboard
+    frappe.ready(function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const view = urlParams.get('view') || 'dashboard';
+        
+        if (view === 'dashboard') renderDashboard();
+        else if (view === 'smartdc') renderSmartDC();
+        else if (allDoctypes[view]) renderGroupView(view, view.charAt(0).toUpperCase() + view.slice(1), allDoctypes[view]);
+        else renderDashboard();
+    });
+</script>
+{% endblock %}

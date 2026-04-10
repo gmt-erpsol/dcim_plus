@@ -3,7 +3,5 @@ import frappe
 
 def get_context(context):
     if frappe.session.user != "Guest":
-        # Redirect to your custom dashboard after login
-        frappe.local.response["type"] = "redirect"
-        frappe.local.response["location"] = "/assets/dcim_plus/index.html"
+        frappe.local.flags.redirect_location = "/index"
         raise frappe.Redirect

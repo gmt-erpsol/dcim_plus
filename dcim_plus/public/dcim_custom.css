@@ -1,0 +1,463 @@
+/* ============================================
+   DCIM PLUS - PROFESSIONAL THEME
+   Dark Mode & Light Mode Optimized
+   ============================================ */
+
+:root {
+    /* Dark Mode (Default) */
+    --dcim-bg-primary: #0a0e27;
+    --dcim-bg-secondary: #0f1535;
+    --dcim-bg-card: #0f1535;
+    --dcim-text-primary: #ffffff;
+    --dcim-text-secondary: #8a94b8;
+    --dcim-text-muted: #5a6e8a;
+    --dcim-accent: #2ecc71;
+    --dcim-accent-hover: #27ae60;
+    --dcim-accent-orange: #f39c12;
+    --dcim-accent-danger: #e74c3c;
+    --dcim-border: rgba(46, 204, 113, 0.15);
+    --dcim-sidebar-bg: #0a0e27;
+    --dcim-navbar-bg: rgba(10, 14, 39, 0.95);
+    --dcim-footer-bg: #0a0e27;
+}
+
+/* Light Mode Override */
+@media (prefers-color-scheme: light) {
+    :root {
+        --dcim-bg-primary: #f0f2f5;
+        --dcim-bg-secondary: #ffffff;
+        --dcim-bg-card: #ffffff;
+        --dcim-text-primary: #1a1a2e;
+        --dcim-text-secondary: #4a5568;
+        --dcim-text-muted: #718096;
+        --dcim-accent: #27ae60;
+        --dcim-accent-hover: #219a52;
+        --dcim-accent-orange: #e67e22;
+        --dcim-border: rgba(39, 174, 96, 0.2);
+        --dcim-sidebar-bg: #ffffff;
+        --dcim-navbar-bg: rgba(255, 255, 255, 0.95);
+        --dcim-footer-bg: #f0f2f5;
+    }
+}
+
+body.light {
+    --dcim-bg-primary: #f0f2f5;
+    --dcim-bg-secondary: #ffffff;
+    --dcim-bg-card: #ffffff;
+    --dcim-text-primary: #1a1a2e;
+    --dcim-text-secondary: #4a5568;
+    --dcim-text-muted: #718096;
+    --dcim-accent: #27ae60;
+    --dcim-accent-hover: #219a52;
+    --dcim-border: rgba(39, 174, 96, 0.2);
+    --dcim-sidebar-bg: #ffffff;
+    --dcim-navbar-bg: rgba(255, 255, 255, 0.95);
+    --dcim-footer-bg: #f0f2f5;
+}
+
+body.dark {
+    --dcim-bg-primary: #0a0e27;
+    --dcim-bg-secondary: #0f1535;
+    --dcim-bg-card: #0f1535;
+    --dcim-text-primary: #ffffff;
+    --dcim-text-secondary: #8a94b8;
+    --dcim-accent: #2ecc71;
+    --dcim-sidebar-bg: #0a0e27;
+    --dcim-footer-bg: #0a0e27;
+}
+
+/* ========== GLOBAL BACKGROUND ========== */
+body {
+    background: var(--dcim-bg-primary) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+/* ========== SIDEBAR MAKEOVER ========== */
+.layout-sidebar,
+.sidebar {
+    background: var(--dcim-sidebar-bg) !important;
+    border-right: 1px solid var(--dcim-border) !important;
+}
+
+.sidebar-item {
+    color: var(--dcim-text-secondary) !important;
+    transition: all 0.3s ease !important;
+    border-radius: 10px !important;
+    margin: 4px 12px !important;
+}
+
+.sidebar-item.active {
+    background: rgba(46, 204, 113, 0.12) !important;
+    color: var(--dcim-accent) !important;
+    border-left: 3px solid var(--dcim-accent) !important;
+}
+
+.sidebar-item:hover:not(.active) {
+    background: rgba(46, 204, 113, 0.08) !important;
+    color: var(--dcim-accent) !important;
+}
+
+/* ========== NAVBAR MAKEOVER ========== */
+.navbar {
+    background: var(--dcim-navbar-bg) !important;
+    backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid var(--dcim-border) !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+}
+
+.navbar-brand {
+    background: linear-gradient(135deg, var(--dcim-accent), #3498db) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    font-weight: 700 !important;
+}
+
+/* Hide unwanted navbar items */
+.navbar .dropdown-help,
+.navbar .help-dropdown,
+.navbar a[href*="help"],
+.navbar a[href*="website"],
+.navbar a[href*="view_website"],
+.dropdown-item:contains("View Website"),
+.dropdown-item:contains("Help"),
+.dropdown-item:contains("Apps") {
+    display: none !important;
+}
+
+/* ========== FOOTER MAKEOVER ========== */
+.footer,
+.page-footer,
+.web-footer {
+    background: var(--dcim-footer-bg) !important;
+    border-top: 1px solid var(--dcim-border) !important;
+    padding: 16px 24px !important;
+    text-align: center !important;
+    font-size: 12px !important;
+    color: var(--dcim-text-muted) !important;
+    position: relative !important;
+}
+
+/* Add custom copyright text via pseudo-element */
+.footer::before,
+.page-footer::before {
+    content: "© 2024 DCIM PLUS - Data Center Infrastructure Management. Developed by Gemtad. All rights reserved. | Addis Ababa, Ethiopia" !important;
+    display: block !important;
+    text-align: center !important;
+    color: var(--dcim-text-muted) !important;
+    font-size: 11px !important;
+}
+
+/* Hide original footer content */
+.footer .text-muted,
+.page-footer .text-muted {
+    display: none !important;
+}
+
+/* ========== USER MENU CUSTOMIZATION ========== */
+/* Hide unwanted dropdown items */
+.dropdown-menu .dropdown-item:contains("Apps"),
+.dropdown-menu .dropdown-item:contains("View Website"),
+.dropdown-menu .dropdown-item:contains("Help"),
+.dropdown-menu a[href*="apps"],
+.dropdown-menu a[href*="website"],
+.dropdown-menu a[href*="help"] {
+    display: none !important;
+}
+
+/* ========== CARDS MAKEOVER ========== */
+.card, .frappe-card {
+    background: var(--dcim-bg-card) !important;
+    border: 1px solid var(--dcim-border) !important;
+    border-radius: 16px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+.card:hover, .frappe-card:hover {
+    transform: translateY(-2px) !important;
+    border-color: var(--dcim-accent) !important;
+    box-shadow: 0 8px 24px rgba(46, 204, 113, 0.1) !important;
+}
+
+.card-header {
+    background: rgba(46, 204, 113, 0.05) !important;
+    border-bottom: 1px solid var(--dcim-border) !important;
+    color: var(--dcim-text-primary) !important;
+    font-weight: 600 !important;
+}
+
+/* ========== BUTTONS MAKEOVER ========== */
+.btn-primary {
+    background: linear-gradient(135deg, var(--dcim-accent), var(--dcim-accent-hover)) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3) !important;
+}
+
+.btn-secondary {
+    background: rgba(46, 204, 113, 0.1) !important;
+    border: 1px solid var(--dcim-border) !important;
+    color: var(--dcim-accent) !important;
+}
+
+.btn-secondary:hover {
+    background: rgba(46, 204, 113, 0.2) !important;
+}
+
+/* ========== FORM CONTROLS ========== */
+.form-control,
+input, select, textarea {
+    background: var(--dcim-bg-secondary) !important;
+    border: 1px solid var(--dcim-border) !important;
+    color: var(--dcim-text-primary) !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+.form-control:focus,
+input:focus, select:focus, textarea:focus {
+    border-color: var(--dcim-accent) !important;
+    box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.1) !important;
+    outline: none !important;
+}
+
+/* ========== TABLES ========== */
+.table > thead > tr > th {
+    background: rgba(46, 204, 113, 0.05) !important;
+    color: var(--dcim-accent) !important;
+    border-bottom: 1px solid var(--dcim-border) !important;
+    font-weight: 600 !important;
+}
+
+.table > tbody > tr > td {
+    color: var(--dcim-text-secondary) !important;
+    border-bottom: 1px solid var(--dcim-border) !important;
+}
+
+.table > tbody > tr:hover > td {
+    background: rgba(46, 204, 113, 0.03) !important;
+}
+
+/* ========== LIST VIEW ========== */
+.list-row {
+    background: var(--dcim-bg-card) !important;
+    border-bottom: 1px solid var(--dcim-border) !important;
+    transition: all 0.2s ease !important;
+}
+
+.list-row:hover {
+    background: rgba(46, 204, 113, 0.05) !important;
+}
+
+.list-row .list-subject {
+    color: var(--dcim-text-primary) !important;
+}
+
+/* ========== DASHBOARD WIDGETS ========== */
+.dashboard-widget {
+    background: var(--dcim-bg-card) !important;
+    border: 1px solid var(--dcim-border) !important;
+    border-radius: 16px !important;
+}
+
+.widget-title {
+    color: var(--dcim-text-primary) !important;
+}
+
+/* ========== MODALS ========== */
+.modal-content {
+    background: var(--dcim-bg-secondary) !important;
+    border: 1px solid var(--dcim-border) !important;
+    border-radius: 16px !important;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--dcim-border) !important;
+}
+
+.modal-title {
+    color: var(--dcim-accent) !important;
+}
+
+.modal-body {
+    color: var(--dcim-text-secondary) !important;
+}
+
+/* ========== DROPDOWNS ========== */
+.dropdown-menu {
+    background: var(--dcim-bg-secondary) !important;
+    border: 1px solid var(--dcim-border) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+.dropdown-menu > li > a {
+    color: var(--dcim-text-secondary) !important;
+    transition: all 0.2s ease !important;
+}
+
+.dropdown-menu > li > a:hover {
+    background: rgba(46, 204, 113, 0.08) !important;
+    color: var(--dcim-accent) !important;
+}
+
+/* ========== TABS ========== */
+.nav-tabs > li > a {
+    color: var(--dcim-text-secondary) !important;
+    transition: all 0.2s ease !important;
+}
+
+.nav-tabs > li.active > a {
+    background: var(--dcim-bg-card) !important;
+    color: var(--dcim-accent) !important;
+    border-bottom-color: var(--dcim-accent) !important;
+}
+
+.nav-tabs > li > a:hover {
+    color: var(--dcim-accent) !important;
+}
+
+/* ========== ALERTS ========== */
+.alert-info {
+    background: rgba(52, 152, 219, 0.1) !important;
+    border: 1px solid rgba(52, 152, 219, 0.3) !important;
+    color: var(--dcim-text-primary) !important;
+    border-radius: 12px !important;
+}
+
+.alert-warning {
+    background: rgba(243, 156, 18, 0.1) !important;
+    border: 1px solid rgba(243, 156, 18, 0.3) !important;
+    color: var(--dcim-text-primary) !important;
+    border-radius: 12px !important;
+}
+
+.alert-danger {
+    background: rgba(231, 76, 60, 0.1) !important;
+    border: 1px solid rgba(231, 76, 60, 0.3) !important;
+    color: var(--dcim-text-primary) !important;
+    border-radius: 12px !important;
+}
+
+.alert-success {
+    background: rgba(46, 204, 113, 0.1) !important;
+    border: 1px solid rgba(46, 204, 113, 0.3) !important;
+    color: var(--dcim-text-primary) !important;
+    border-radius: 12px !important;
+}
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dcim-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--dcim-accent);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--dcim-accent-hover);
+}
+
+/* ========== TEXT COLORS ========== */
+.text-muted {
+    color: var(--dcim-text-muted) !important;
+}
+
+.text-primary {
+    color: var(--dcim-accent) !important;
+}
+
+h1, h2, h3, h4, h5, h6, .title, .heading {
+    color: var(--dcim-text-primary) !important;
+}
+
+/* ========== BADGES ========== */
+.badge {
+    border-radius: 6px !important;
+    padding: 4px 8px !important;
+    font-weight: 500 !important;
+}
+
+.badge-primary {
+    background: var(--dcim-accent) !important;
+    color: white !important;
+}
+
+/* ========== PROGRESS BARS ========== */
+.progress {
+    background: rgba(46, 204, 113, 0.1) !important;
+    border-radius: 8px !important;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, var(--dcim-accent), #3498db) !important;
+    border-radius: 8px !important;
+}
+
+/* ========== CUSTOM ANIMATIONS ========== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0 !important;
+    }
+}
+
+/* ========== CUSTOM DCIM SPECIFIC ========== */
+/* Power status indicators */
+.power-status-normal {
+    color: var(--dcim-accent);
+}
+
+.power-status-warning {
+    color: var(--dcim-accent-orange);
+}
+
+.power-status-critical {
+    color: var(--dcim-accent-danger);
+}
+
+/* Temperature colors */
+.temp-normal {
+    color: var(--dcim-accent);
+}
+
+.temp-warning {
+    color: var(--dcim-accent-orange);
+}
+
+.temp-critical {
+    color: var(--dcim-accent-danger);
+}

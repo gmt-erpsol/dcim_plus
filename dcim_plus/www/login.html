@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Awash Bank | DCIM PLUS - Enterprise Data Center Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCIM PLUS - Enterprise Data Center Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -12,695 +14,568 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0A0C12;
+            font-family: 'Inter', sans-serif;
+            background: #05050a;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* Animated Background */
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
             overflow: hidden;
         }
 
-        .animated-bg .gradient {
+        /* Main Container - Full Screen Split */
+        .login-container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* ========== LEFT SECTION - BRANDING & FEATURES ========== */
+        .left-section {
+            flex: 1.5;
+            background: linear-gradient(135deg, #0a0b1a 0%, #0f1535 100%);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 80px;
+            overflow: hidden;
+        }
+
+        /* Animated Background for Left Section */
+        .left-section::before {
+            content: '';
             position: absolute;
+            top: -50%;
+            right: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle at 20% 50%, rgba(59,130,246,0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(16,185,129,0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 20%, rgba(139,92,246,0.08) 0%, transparent 50%);
-            animation: float 20s ease-in-out infinite;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.08), transparent 60%);
+            animation: rotateBg 25s linear infinite;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(2%, 1%) rotate(1deg); }
-            66% { transform: translate(-1%, 2%) rotate(-1deg); }
+        @keyframes rotateBg {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
-        /* Floating Particles */
-        .particles {
-            position: fixed;
+        /* Grid Pattern */
+        .grid-pattern {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0;
+            background-image: linear-gradient(rgba(255, 215, 0, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 215, 0, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
             pointer-events: none;
         }
 
-        .particle {
+        /* Floating Elements */
+        .floating-element {
             position: absolute;
-            background: rgba(59,130,246,0.3);
+            background: rgba(255, 215, 0, 0.05);
             border-radius: 50%;
-            animation: float-particle 8s infinite;
+            pointer-events: none;
+            animation: float 20s infinite ease-in-out;
         }
 
-        @keyframes float-particle {
-            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
-            10% { opacity: 0.5; }
-            90% { opacity: 0.3; }
-            100% { transform: translateY(-100px) translateX(50px); opacity: 0; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
         }
 
-        /* DateTime Widget - Modern Style */
-        .datetime-widget {
-            position: fixed;
-            top: 25px;
-            right: 30px;
-            background: rgba(15, 17, 23, 0.7);
-            backdrop-filter: blur(12px);
-            padding: 12px 24px;
-            border-radius: 50px;
-            border: 1px solid rgba(59,130,246,0.3);
-            z-index: 20;
-            text-align: center;
-            font-family: 'Inter', monospace;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-        }
-
-        .datetime-widget:hover {
-            border-color: #3B82F6;
-            transform: translateY(-2px);
-        }
-
-        .datetime-date {
-            font-size: 11px;
-            color: #9CA3AF;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .datetime-time {
-            font-size: 22px;
-            font-weight: 700;
-            color: #3B82F6;
-            letter-spacing: 1px;
-        }
-
-        /* Main Container */
-        .login-container {
+        /* Logo Area */
+        .logo-area {
             position: relative;
-            z-index: 10;
-            width: 1300px;
-            max-width: 95%;
-            display: flex;
-            background: rgba(15, 17, 23, 0.6);
-            backdrop-filter: blur(20px);
-            border-radius: 48px;
-            overflow: hidden;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-        }
-
-        /* Left Panel - Branding */
-        .brand-panel {
-            flex: 1.2;
-            background: linear-gradient(145deg, rgba(15,17,23,0.8), rgba(10,12,18,0.8));
-            padding: 48px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Logo Section */
-        .logo-section {
+            z-index: 2;
             margin-bottom: 60px;
-            position: relative;
-            z-index: 1;
         }
 
-        .bank-logo {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .bank-logo-img {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #1E3A5F, #0F2B45);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-
-        .bank-logo-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .bank-name h1 {
-            font-size: 24px;
-            font-weight: 700;
-            background: linear-gradient(135deg, #FFFFFF, #60A5FA);
+        .logo-area h1 {
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: 1px;
+            letter-spacing: -1px;
         }
 
-        .bank-name p {
-            font-size: 12px;
-            color: #6B7280;
-            letter-spacing: 0.5px;
+        .logo-area p {
+            color: #8a94b8;
+            font-size: 14px;
+            margin-top: 12px;
         }
 
-        /* Welcome Section */
-        .welcome-section {
+        /* Hero Title */
+        .hero-title {
+            position: relative;
+            z-index: 2;
             margin-bottom: 50px;
         }
 
-        .welcome-badge {
-            display: inline-block;
-            padding: 6px 14px;
-            background: rgba(59,130,246,0.15);
-            border: 1px solid rgba(59,130,246,0.3);
-            border-radius: 30px;
-            font-size: 12px;
-            color: #60A5FA;
+        .hero-title h2 {
+            color: #ffffff;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
             margin-bottom: 20px;
         }
 
-        .welcome-section h2 {
-            font-size: 36px;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #FFFFFF, #9CA3AF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .hero-title h2 span {
+            color: #ffd700;
         }
 
-        .welcome-section p {
-            color: #9CA3AF;
-            font-size: 14px;
+        .hero-title p {
+            color: #8a94b8;
+            font-size: 16px;
             line-height: 1.6;
+            max-width: 80%;
         }
 
-        /* Stats Section - Inspirational */
-        .stats-section {
-            display: flex;
+        /* Features Grid */
+        .features-grid {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
-            margin-top: 40px;
+            margin-top: 20px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 215, 0, 0.3);
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .feature-icon i {
+            font-size: 24px;
+            color: #ffd700;
+        }
+
+        .feature-card h4 {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: #8a94b8;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            gap: 40px;
+            margin-top: 50px;
             padding-top: 30px;
-            border-top: 1px solid rgba(59,130,246,0.2);
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
         }
 
         .stat-item {
-            flex: 1;
             text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
         }
 
         .stat-number {
             font-size: 28px;
             font-weight: 700;
-            background: linear-gradient(135deg, #3B82F6, #60A5FA);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 4px;
+            color: #ffd700;
         }
 
         .stat-label {
-            font-size: 11px;
-            color: #6B7280;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-size: 12px;
+            color: #8a94b8;
+            margin-top: 5px;
         }
 
-        /* Right Panel - Login Form */
-        .form-panel {
-            flex: 0.8;
-            padding: 48px;
-            background: rgba(26, 28, 35, 0.5);
-            backdrop-filter: blur(10px);
-            border-left: 1px solid rgba(59,130,246,0.2);
+        /* ========== RIGHT SECTION - LOGIN FORM ========== */
+        .right-section {
+            width: 480px;
+            background: rgba(10, 11, 26, 0.95);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 48px 40px;
+            position: relative;
+            border-left: 1px solid rgba(255, 215, 0, 0.15);
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
         }
 
-        .form-header {
-            margin-bottom: 32px;
+        /* Login Header */
+        .login-header {
             text-align: center;
+            margin-bottom: 40px;
         }
 
-        .form-header h3 {
+        .login-header h3 {
+            color: #ffffff;
             font-size: 28px;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 8px;
+            font-weight: 700;
+            margin-bottom: 10px;
         }
 
-        .form-header p {
-            font-size: 13px;
-            color: #6B7280;
+        .login-header p {
+            color: #8a94b8;
+            font-size: 14px;
         }
 
-        /* Form Groups */
-        .form-group {
+        /* Form Styles */
+        .input-group {
             margin-bottom: 24px;
         }
 
-        .form-group label {
+        .input-group label {
             display: block;
-            font-size: 12px;
+            color: #a0a0b0;
+            font-size: 13px;
             font-weight: 500;
-            color: #9CA3AF;
             margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .input-wrapper {
             position: relative;
+            display: flex;
+            align-items: center;
         }
 
-        .input-icon {
+        .input-wrapper i {
             position: absolute;
             left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 18px;
+            color: #ffd700;
+            font-size: 16px;
+            transition: all 0.3s;
         }
 
-        .form-group input {
+        .input-wrapper input {
             width: 100%;
             padding: 14px 16px 14px 48px;
-            background: #0F1117;
-            border: 1px solid #2D2F36;
-            border-radius: 14px;
-            color: white;
+            background: rgba(5, 5, 10, 0.8);
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 12px;
+            color: #ffffff;
             font-size: 14px;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
         }
 
-        .form-group input:focus {
+        .input-wrapper input:focus {
             outline: none;
-            border-color: #3B82F6;
-            box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+            border-color: #ffd700;
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+        }
+
+        .input-wrapper input:focus + i {
+            color: #ffd700;
+        }
+
+        .input-wrapper input::placeholder {
+            color: #5a6e8a;
         }
 
         /* Login Button */
         .login-btn {
             width: 100%;
             padding: 14px;
-            background: linear-gradient(135deg, #3B82F6, #2563EB);
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
             border: none;
-            border-radius: 14px;
-            color: white;
-            font-size: 14px;
-            font-weight: 600;
+            border-radius: 12px;
+            color: #05050a;
+            font-size: 16px;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
             margin-top: 8px;
             position: relative;
             overflow: hidden;
         }
 
+        .login-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .login-btn:hover::before {
+            left: 100%;
+        }
+
         .login-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(59,130,246,0.4);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .login-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Error Message */
+        .error-message {
+            background: rgba(231, 76, 60, 0.12);
+            border: 1px solid rgba(231, 76, 60, 0.3);
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 20px;
+            color: #ff6b6b;
+            font-size: 13px;
+            text-align: center;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
         }
 
         /* Footer */
-        .footer {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(15, 17, 23, 0.95);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(59,130,246,0.2);
-            padding: 16px 32px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-            font-size: 11px;
-            color: #6B7280;
-            z-index: 10;
+        .login-footer {
+            text-align: center;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
         }
 
-        .footer-links {
-            display: flex;
-            gap: 24px;
+        .login-footer p {
+            color: #5a6e8a;
+            font-size: 12px;
         }
 
-        .footer-links a {
-            color: #6B7280;
-            text-decoration: none;
-            transition: color 0.2s;
-            cursor: pointer;
-        }
-
-        .footer-links a:hover {
-            color: #3B82F6;
-        }
-
-        .developer-credit {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .developer-credit .heart {
-            color: #EF4444;
-            animation: heartbeat 1.5s ease infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-
-        /* Loading Animation */
-        .loading-spinner {
+        /* Spinner */
+        .spinner {
             display: inline-block;
-            width: 16px;
-            height: 16px;
-            border: 2px solid white;
-            border-top-color: transparent;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(5, 5, 10, 0.3);
+            border-top-color: #05050a;
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
-            margin-left: 8px;
+            margin-right: 8px;
+            vertical-align: middle;
         }
 
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
 
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: #1A1C23;
-            border-radius: 24px;
-            padding: 32px;
-            max-width: 500px;
-            width: 90%;
-            border: 1px solid #2D2F36;
-        }
-
-        .modal-content h3 {
-            color: white;
-            margin-bottom: 16px;
-        }
-
-        .modal-content p {
-            color: #9CA3AF;
-            line-height: 1.6;
-        }
-
-        .modal-close {
-            background: #3B82F6;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-
         /* Responsive */
-        @media (max-width: 900px) {
-            .login-container {
-                flex-direction: column;
-                margin: 20px;
-                border-radius: 32px;
+        @media (max-width: 1200px) {
+            .left-section {
+                padding: 40px 50px;
             }
-            .datetime-widget {
-                top: 10px;
-                right: 10px;
-                padding: 8px 16px;
+            .hero-title h2 {
+                font-size: 36px;
             }
-            .datetime-time {
-                font-size: 16px;
+        }
+
+        @media (max-width: 968px) {
+            .left-section {
+                display: none;
             }
-            .stats-section {
-                flex-wrap: wrap;
-            }
-            .footer {
-                position: relative;
-                margin-top: 20px;
+            .right-section {
+                width: 100%;
+                border-left: none;
             }
         }
     </style>
 </head>
 <body>
-    <!-- DateTime Widget -->
-    <div class="datetime-widget" id="datetime-widget">
-        <div class="datetime-date" id="date"></div>
-        <div class="datetime-time" id="time"></div>
-    </div>
-
-    <!-- Animated Background -->
-    <div class="animated-bg">
-        <div class="gradient"></div>
-    </div>
-    <div class="particles" id="particles"></div>
-
-    <!-- Modal -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <h3 id="modal-title"></h3>
-            <p id="modal-text"></p>
-            <button class="modal-close" onclick="closeModal()">Close</button>
-        </div>
-    </div>
-
     <div class="login-container">
-        <!-- Left Panel - Branding -->
-        <div class="brand-panel">
-            <div class="logo-section">
-                <div class="bank-logo">
-                    <div class="bank-logo-img" id="awash-logo">
-                        <span>🏦</span>
-                    </div>
-                    <div class="bank-name">
-                        <h1>AWASH BANK</h1>
-                        <p>Data Center Infrastructure Management</p>
-                    </div>
-                </div>
+        <!-- LEFT SECTION - Branding & Features -->
+        <div class="left-section">
+            <div class="grid-pattern"></div>
+            <div class="floating-element" style="width: 300px; height: 300px; top: -100px; right: -100px;"></div>
+            <div class="floating-element" style="width: 150px; height: 150px; bottom: 50px; left: 50px; animation-delay: 5s;"></div>
+            <div class="floating-element" style="width: 200px; height: 200px; top: 40%; right: 20%; animation-duration: 15s;"></div>
+
+            <div class="logo-area">
+                <h1><i class="fas fa-database"></i> DCIM PLUS</h1>
+                <p>Enterprise Data Center Infrastructure Management</p>
             </div>
 
-            <div class="welcome-section">
-                <div class="welcome-badge">🔒 Enterprise Security</div>
-                <h2>Welcome to<br>DCIM PLUS</h2>
-                <p>Enterprise-grade Data Center Infrastructure Management platform for Awash Bank's critical infrastructure. Real-time monitoring, predictive analytics, and intelligent automation.</p>
+            <div class="hero-title">
+                <h2>Complete Control of Your<br><span>Data Center Infrastructure</span></h2>
+                <p>Real-time monitoring, AI-powered analytics, and 3D visualization - all in one powerful platform.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Real-time Monitoring</h4>
+                    <p>Live power, temperature, and asset tracking</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                    <h4>AI-Powered Analytics</h4>
+                    <p>Predictive maintenance & capacity planning</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-cube"></i></div>
+                    <h4>3D Visualization</h4>
+                    <p>Interactive digital twin of your data center</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Enterprise Security</h4>
+                    <p>Role-based access & complete audit trails</p>
+                </div>
             </div>
 
             <div class="stats-section">
                 <div class="stat-item">
-                    <div class="stat-number">⚡ Real-time</div>
-                    <div class="stat-label">Power Monitoring</div>
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Uptime SLA</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">❄️ Smart</div>
-                    <div class="stat-label">Cooling Control</div>
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Monitoring</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">📊 AI-Powered</div>
-                    <div class="stat-label">Capacity Planning</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">🔔 Instant</div>
-                    <div class="stat-label">Alert System</div>
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Enterprise Clients</div>
                 </div>
             </div>
         </div>
 
-        <!-- Right Panel - Login Form -->
-        <div class="form-panel">
-            <div class="form-header">
-                <h3>Access Your Dashboard</h3>
-                <p>Sign in to manage your data center infrastructure</p>
+        <!-- RIGHT SECTION - Login Form -->
+        <div class="right-section">
+            <div class="login-header">
+                <h3>Welcome Back</h3>
+                <p>Sign in to access your DCIM dashboard</p>
             </div>
 
-            <form id="login-form" action="/api/method/login" method="post">
-                <div class="form-group">
-                    <label>EMAIL / USERNAME</label>
+            <div class="error-message" id="errorMessage">
+                <i class="fas fa-exclamation-triangle"></i> Invalid username or password
+            </div>
+
+            <form id="loginForm">
+                <div class="input-group">
+                    <label>Username or Email</label>
                     <div class="input-wrapper">
-                        <span class="input-icon">📧</span>
-                        <input type="text" name="usr" id="usr" placeholder="Enter your email or username" autocomplete="username">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="username" placeholder="Administrator / admin@example.com" autocomplete="off">
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label>PASSWORD</label>
+                <div class="input-group">
+                    <label>Password</label>
                     <div class="input-wrapper">
-                        <span class="input-icon">🔒</span>
-                        <input type="password" name="pwd" id="pwd" placeholder="Enter your password" autocomplete="current-password">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="Enter your password">
                     </div>
                 </div>
 
-                <button type="submit" class="login-btn" id="login-btn">
-                    Sign In
+                <button type="submit" class="login-btn" id="loginBtn">
+                    <i class="fas fa-arrow-right-to-bracket"></i> Sign In
                 </button>
             </form>
-        </div>
-    </div>
 
-    <!-- Footer -->
-    <div class="footer">
-        <div class="footer-copyright">
-            <span>🏭 DCIM PLUS</span>
-            <span>|</span>
-            <span>© 2026 Awash Bank. All rights reserved.</span>
-        </div>
-        <div class="footer-links">
-            <a onclick="showModal('About DCIM PLUS', 'DCIM PLUS is an enterprise-grade Data Center Infrastructure Management platform built for Awash Bank. It provides real-time monitoring, predictive analytics, capacity planning, and intelligent alerting for all data center infrastructure including power, cooling, IT assets, and security systems. Version 1.0 Enterprise Edition.')">About</a>
-            <a onclick="showModal('Security', 'DCIM PLUS implements enterprise-grade security measures including:\n• Role-based access control (RBAC)\n• Audit logging for all actions\n• Encrypted data transmission (HTTPS)\n• Secure authentication\n• Session management\n• Regular security audits')">Security</a>
-            <a onclick="showModal('Privacy Policy', 'Your privacy is important to us. This platform collects and processes data necessary for data center operations. All data is stored securely and is only accessible to authorized personnel. We do not share your data with third parties without explicit consent.')">Privacy</a>
-            <a onclick="showModal('Terms of Service', 'By accessing DCIM PLUS, you agree to:\n• Use the platform for authorized purposes only\n• Maintain the confidentiality of your credentials\n• Report any security incidents immediately\n• Comply with Awash Bank\'s IT policies\n• Not attempt to bypass security measures')">Terms</a>
-            <a onclick="showModal('Support', 'For technical support:\n📧 Email: gemtad@awashbank.com\n📞 Phone: +251-1945291736\n🕐 Hours: 24/7 for critical issues\n📍 Location: Awash Bank Headquarters, Addis Ababa')">Support</a>
-        </div>
-        <div class="developer-credit">
-            <span>Developed with</span>
-            <span class="heart">❤️</span>
-            <span>by <strong style="color: #3B82F6;">Gemtad</strong></span>
-            <span>| v1.0 Enterprise</span>
+            <div class="login-footer">
+                <p>© 2026 DCIM PLUS | Addis Ababa, Ethiopia</p>
+            </div>
         </div>
     </div>
 
     <script>
-        // DateTime Update - Clean & Modern
-        function updateDateTime() {
-            const now = new Date();
-            const dateOptions = { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' };
-            document.getElementById('date').innerHTML = now.toLocaleDateString('en-US', dateOptions);
-            document.getElementById('time').innerHTML = now.toLocaleTimeString('en-US', { hour12: false });
-        }
-        updateDateTime();
-        setInterval(updateDateTime, 1000);
-
-        // Create floating particles
-        function createParticles() {
-            const container = document.getElementById('particles');
-            const particleCount = 40;
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                const size = Math.random() * 5 + 2;
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 8 + 's';
-                particle.style.animationDuration = Math.random() * 6 + 6 + 's';
-                container.appendChild(particle);
-            }
-        }
-        createParticles();
-
-        // Modal functions
-        function showModal(title, text) {
-            document.getElementById('modal-title').innerHTML = title;
-            document.getElementById('modal-text').innerHTML = text.replace(/\n/g, '<br>');
-            document.getElementById('modal').style.display = 'flex';
+        // Show error message
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> ' + (message || 'Invalid username or password');
+            errorDiv.classList.add('show');
+            setTimeout(() => {
+                errorDiv.classList.remove('show');
+            }, 5000);
         }
 
-        function closeModal() {
-            document.getElementById('modal').style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('modal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
-
-        // Try to load Awash Bank logo
-        function loadAwashLogo() {
-            const possiblePaths = [
-                '/assets/dcim_plus/images/awash_logo.png',
-                '/assets/dcim_plus/images/awash-bank-logo.png',
-                '/assets/dcim_plus/images/logo.png'
-            ];
-            
-            for (const path of possiblePaths) {
-                fetch(path, { method: 'HEAD' })
-                    .then(response => {
-                        if (response.ok) {
-                            const logoDiv = document.getElementById('awash-logo');
-                            logoDiv.innerHTML = `<img src="${path}" alt="Awash Bank" style="width:100%; height:100%; object-fit:contain;">`;
-                        }
-                    })
-                    .catch(() => {});
-            }
-        }
-        loadAwashLogo();
-
-        // Form submission
-        const form = document.getElementById('login-form');
-        const btn = document.getElementById('login-btn');
-
-        form.addEventListener('submit', function(e) {
+        // Handle login
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             
+            const btn = document.getElementById('loginBtn');
             const originalText = btn.innerHTML;
-            btn.innerHTML = 'Signing in... <span class="loading-spinner"></span>';
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            
+            if (!username || !password) {
+                showError('Please enter both username and password');
+                return;
+            }
+            
             btn.disabled = true;
-
-            const formData = new FormData(form);
-
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                credentials: 'same-origin'
-            })
-            .then(response => {
-                if (response.redirected) {
-                    window.location.href = response.url;
+            btn.innerHTML = '<span class="spinner"></span> Signing in...';
+            
+            try {
+                const response = await fetch('/api/method/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    credentials: 'same-origin',
+                    body: JSON.stringify({
+                        usr: username,
+                        pwd: password
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.status === 200 && data.message === "Logged In") {
+                    window.location.href = '/app';
                 } else {
-                    return response.json();
-                }
-            })
-            .then(data => {
-                if (data && data.message === "Logged In") {
-                    window.location.href = "/app";
-                } else if (data && data._server_messages) {
-                    alert("Invalid email or password. Please try again.");
+                    showError('Invalid username or password');
                     btn.innerHTML = originalText;
                     btn.disabled = false;
                 }
-            })
-            .catch(() => {
-                alert("Login failed. Please check your credentials and try again.");
+            } catch (error) {
+                console.error('Login error:', error);
+                showError('Connection error. Please check the server');
                 btn.innerHTML = originalText;
                 btn.disabled = false;
-            });
+            }
+        });
+
+        // Enter key submit
+        document.getElementById('password').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+            }
         });
     </script>
 </body>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +18,6 @@
             overflow: hidden;
         }
         
-        /* Sidebar */
         .sidebar {
             position: fixed;
             left: 0;
@@ -32,18 +30,9 @@
             z-index: 100;
         }
         
-        .sidebar::-webkit-scrollbar {
-            width: 4px;
-        }
-        
-        .sidebar::-webkit-scrollbar-track {
-            background: #0a0e27;
-        }
-        
-        .sidebar::-webkit-scrollbar-thumb {
-            background: #2ecc71;
-            border-radius: 4px;
-        }
+        .sidebar::-webkit-scrollbar { width: 4px; }
+        .sidebar::-webkit-scrollbar-track { background: #0a0e27; }
+        .sidebar::-webkit-scrollbar-thumb { background: #2ecc71; border-radius: 4px; }
         
         .logo {
             padding: 24px;
@@ -62,10 +51,6 @@
             color: #5a6e8a;
             font-size: 11px;
             margin-top: 8px;
-        }
-        
-        .nav-section {
-            margin-bottom: 20px;
         }
         
         .nav-section-title {
@@ -99,12 +84,8 @@
             color: #2ecc71;
         }
         
-        .nav-item i {
-            width: 20px;
-            font-size: 14px;
-        }
+        .nav-item i { width: 20px; font-size: 14px; }
         
-        /* Main Content */
         .main-content {
             margin-left: 280px;
             height: 100vh;
@@ -113,7 +94,6 @@
             overflow: hidden;
         }
         
-        /* Top Bar */
         .topbar {
             background: rgba(15, 21, 53, 0.95);
             backdrop-filter: blur(10px);
@@ -122,9 +102,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 99;
         }
         
         .page-title {
@@ -140,22 +117,10 @@
             color: #8892b0;
         }
         
-        .user-avatar {
-            width: 32px;
-            height: 32px;
-            background: #2ecc71;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
-        
-        /* Content Area */
         .content-area {
             flex: 1;
             overflow-y: auto;
-            padding: 20px;
+            padding: 24px;
         }
         
         /* Dashboard Cards */
@@ -171,49 +136,44 @@
             border-radius: 12px;
             padding: 20px;
             border-left: 3px solid;
+            cursor: pointer;
+            transition: transform 0.2s;
         }
         
+        .stat-card:hover { transform: translateY(-2px); }
         .stat-card.critical { border-left-color: #e74c3c; }
         .stat-card.warning { border-left-color: #f39c12; }
         .stat-card.success { border-left-color: #2ecc71; }
         .stat-card.info { border-left-color: #3498db; }
         
-        .stat-label {
-            color: #8892b0;
-            font-size: 12px;
-            margin-bottom: 8px;
-        }
+        .stat-label { color: #8892b0; font-size: 12px; margin-bottom: 8px; }
+        .stat-value { color: white; font-size: 28px; font-weight: 700; }
         
-        .stat-value {
-            color: white;
-            font-size: 28px;
-            font-weight: 700;
-        }
-        
-        .assets-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .asset-card {
+        /* Data Table */
+        .data-table {
             background: #0f1535;
-            border-radius: 10px;
-            padding: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            width: 100%;
+            margin-top: 20px;
         }
         
-        .asset-title {
-            color: #2ecc71;
-            font-size: 12px;
-            margin-bottom: 8px;
-        }
-        
-        .asset-count {
+        .data-table th {
+            background: #1a2350;
+            padding: 12px;
+            text-align: left;
             color: white;
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 13px;
         }
+        
+        .data-table td {
+            padding: 12px;
+            color: #8892b0;
+            border-bottom: 1px solid #1a2350;
+            font-size: 13px;
+        }
+        
+        .data-table tr:hover td { background: rgba(46, 204, 113, 0.05); }
         
         .btn {
             padding: 8px 16px;
@@ -223,34 +183,21 @@
             font-size: 13px;
         }
         
-        .btn-primary {
-            background: #2ecc71;
-            color: white;
-        }
+        .btn-primary { background: #2ecc71; color: white; }
+        .btn-secondary { background: #3498db; color: white; }
+        .btn-danger { background: #e74c3c; color: white; }
         
-        .btn-secondary {
-            background: #3498db;
-            color: white;
-        }
+        .loading { text-align: center; padding: 40px; color: #2ecc71; }
         
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: #2ecc71;
-        }
-        
-        /* Iframe container */
-        .iframe-container {
-            height: calc(100vh - 80px);
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; color: #8892b0; margin-bottom: 8px; font-size: 12px; }
+        .form-group input, .form-group select {
             width: 100%;
-        }
-        
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 12px;
-            background: white;
+            padding: 10px;
+            background: #1a2350;
+            border: 1px solid #2a3560;
+            color: white;
+            border-radius: 6px;
         }
     </style>
 </head>
@@ -261,88 +208,46 @@
             <p>Addis Ababa, Ethiopia</p>
         </div>
         
-        <!-- MAIN -->
-        <div class="nav-section">
-            <div class="nav-section-title">MAIN</div>
-            <div class="nav-item active" data-type="dashboard">
-                <i class="fas fa-tachometer-alt"></i>
-                <span>Executive Dashboard</span>
-            </div>
+        <div class="nav-section-title">MAIN</div>
+        <div class="nav-item active" data-view="dashboard">
+            <i class="fas fa-tachometer-alt"></i> <span>Dashboard</span>
         </div>
         
-        <!-- DCIM WORKSPACES -->
-        <div class="nav-section">
-            <div class="nav-section-title">DCIM WORKSPACES</div>
-            
-            <div class="nav-item" data-type="workspace" data-workspace="📊 Infrastructure Management">
-                <i class="fas fa-building"></i>
-                <span>Infrastructure Management</span>
-            </div>
-            
-            <div class="nav-item" data-type="workspace" data-workspace="💻 IT Asset Management">
-                <i class="fas fa-microchip"></i>
-                <span>IT Asset Management</span>
-            </div>
-            
-            <div class="nav-item" data-type="workspace" data-workspace="⚡ Power Management">
-                <i class="fas fa-bolt"></i>
-                <span>Power Management</span>
-            </div>
-            
-            <div class="nav-item" data-type="workspace" data-workspace="❄️ Cooling Infrustructure">
-                <i class="fas fa-snowflake"></i>
-                <span>Cooling Infrastructure</span>
-            </div>
-            
-            <div class="nav-item" data-type="workspace" data-workspace="🔒 Security & Safety">
-                <i class="fas fa-shield-alt"></i>
-                <span>Security & Safety</span>
-            </div>
-            
-            <div class="nav-item" data-type="workspace" data-workspace="🛠️ Operations">
-                <i class="fas fa-tools"></i>
-                <span>Operations</span>
-            </div>
-            
-            <div class="nav-item" data-type="workspace" data-workspace="👥 Shift & Compliance">
-                <i class="fas fa-users"></i>
-                <span>Shift & Compliance</span>
-            </div>
-            
-            <div class="nav-item" data-type="workspace" data-workspace="📋 Vendor & Audit">
-                <i class="fas fa-file-invoice"></i>
-                <span>Vendor & Audit</span>
-            </div>
-            
-            <div class="nav-item" data-type="workspace" data-workspace="Smart DC">
-                <i class="fas fa-robot"></i>
-                <span>Smart DC</span>
-            </div>
+        <div class="nav-section-title">INFRASTRUCTURE</div>
+        <div class="nav-item" data-view="list" data-doctype="Data Center">
+            <i class="fas fa-building"></i> <span>Data Centers</span>
+        </div>
+        <div class="nav-item" data-view="list" data-doctype="Rack">
+            <i class="fas fa-server"></i> <span>Racks</span>
         </div>
         
-        <!-- SYSTEM -->
-        <div class="nav-section">
-            <div class="nav-section-title">SYSTEM</div>
-            
-            <div class="nav-item" data-type="workspace" data-workspace="System Adminstaration">
-                <i class="fas fa-user-shield"></i>
-                <span>System Administration</span>
-            </div>
-            
-            <div class="nav-item" data-type="workspace" data-workspace="Users">
-                <i class="fas fa-users"></i>
-                <span>Users</span>
-            </div>
-            
-            <div class="nav-item" data-type="workspace" data-workspace="Integrations">
-                <i class="fas fa-plug"></i>
-                <span>Integrations</span>
-            </div>
-            
-            <div class="nav-item" data-type="workspace" data-workspace="Tools">
-                <i class="fas fa-wrench"></i>
-                <span>Tools</span>
-            </div>
+        <div class="nav-section-title">ASSETS</div>
+        <div class="nav-item" data-view="list" data-doctype="IT Asset">
+            <i class="fas fa-microchip"></i> <span>IT Assets</span>
+        </div>
+        <div class="nav-item" data-view="list" data-doctype="UPS">
+            <i class="fas fa-battery-full"></i> <span>UPS Systems</span>
+        </div>
+        <div class="nav-item" data-view="list" data-doctype="PDU">
+            <i class="fas fa-plug"></i> <span>PDUs</span>
+        </div>
+        <div class="nav-item" data-view="list" data-doctype="Generator">
+            <i class="fas fa-industry"></i> <span>Generators</span>
+        </div>
+        
+        <div class="nav-section-title">COOLING</div>
+        <div class="nav-item" data-view="list" data-doctype="CRAC Unit">
+            <i class="fas fa-snowflake"></i> <span>CRAC Units</span>
+        </div>
+        
+        <div class="nav-section-title">SECURITY</div>
+        <div class="nav-item" data-view="list" data-doctype="Temperature Sensor">
+            <i class="fas fa-thermometer-half"></i> <span>Temperature Sensors</span>
+        </div>
+        
+        <div class="nav-section-title">OPERATIONS</div>
+        <div class="nav-item" data-view="list" data-doctype="Work Order">
+            <i class="fas fa-clipboard-list"></i> <span>Work Orders</span>
         </div>
     </div>
     
@@ -352,207 +257,207 @@
             <div class="user-info">
                 <i class="fas fa-bell"></i>
                 <span id="user-name">Admin</span>
-                <div class="user-avatar">
-                    <i class="fas fa-user"></i>
-                </div>
+                <i class="fas fa-user-circle"></i>
             </div>
         </div>
         <div class="content-area" id="content-area">
-            <div class="loading"><i class="fas fa-spinner fa-pulse"></i> Loading dashboard...</div>
+            <div class="loading"><i class="fas fa-spinner fa-pulse"></i> Loading...</div>
         </div>
     </div>
     
     <script src="/assets/js/frappe-web.min.js"></script>
     <script>
-        // DCIM PLUS - Complete Workspace Integration
-        let currentType = 'dashboard';
-        let currentWorkspace = '';
+        let currentDoctype = null;
         
-        // Fetch data from Frappe API
         function fetchCount(doctype) {
             return new Promise((resolve) => {
                 if (typeof frappe !== 'undefined' && frappe.call) {
                     frappe.call({
                         method: "frappe.client.get_count",
                         args: { doctype: doctype },
-                        callback: function(r) {
-                            resolve(r.message || 0);
-                        },
-                        error: function() {
-                            resolve(0);
-                        }
+                        callback: (r) => resolve(r.message || 0),
+                        error: () => resolve(0)
                     });
-                } else {
-                    resolve(0);
-                }
+                } else { resolve(0); }
             });
         }
         
-        // Render Dashboard
         async function renderDashboard() {
-            currentType = 'dashboard';
-            document.getElementById('content-area').innerHTML = '<div class="loading"><i class="fas fa-spinner fa-pulse"></i> Loading dashboard...</div>';
-            
-            const assets = await fetchCount('IT Asset');
-            const racks = await fetchCount('Rack');
-            const ups = await fetchCount('UPS');
-            const gens = await fetchCount('Generator');
-            const pdus = await fetchCount('PDU');
-            const cracs = await fetchCount('CRAC Unit');
+            const [assets, racks, ups, gens, pdus, cracs] = await Promise.all([
+                fetchCount('IT Asset'), fetchCount('Rack'), fetchCount('UPS'),
+                fetchCount('Generator'), fetchCount('PDU'), fetchCount('CRAC Unit')
+            ]);
             
             const html = `
                 <h2 style="color: white; margin-bottom: 20px;">DCIM PLUS | Executive Dashboard</h2>
-                
                 <div class="stats-grid">
-                    <div class="stat-card critical">
-                        <div class="stat-label">CRITICAL ALERTS</div>
-                        <div class="stat-value">0</div>
+                    <div class="stat-card success" onclick="loadListView('IT Asset')">
+                        <div class="stat-label">IT ASSETS</div>
+                        <div class="stat-value">${assets}</div>
                     </div>
-                    <div class="stat-card warning">
-                        <div class="stat-label">OPEN INCIDENTS</div>
-                        <div class="stat-value">0</div>
-                    </div>
-                    <div class="stat-card success">
-                        <div class="stat-label">ACTIVE RACKS</div>
+                    <div class="stat-card info" onclick="loadListView('Rack')">
+                        <div class="stat-label">RACKS</div>
                         <div class="stat-value">${racks}</div>
                     </div>
-                    <div class="stat-card info">
-                        <div class="stat-label">TOTAL PDUs</div>
+                    <div class="stat-card warning" onclick="loadListView('UPS')">
+                        <div class="stat-label">UPS SYSTEMS</div>
+                        <div class="stat-value">${ups}</div>
+                    </div>
+                    <div class="stat-card critical" onclick="loadListView('PDU')">
+                        <div class="stat-label">PDUs</div>
                         <div class="stat-value">${pdus}</div>
                     </div>
                 </div>
-                
-                <div class="assets-grid">
-                    <div class="asset-card">
-                        <div class="asset-title">🏢 Infrastructure</div>
-                        <div class="asset-count">0 DC - ${racks} Racks</div>
-                    </div>
-                    <div class="asset-card">
-                        <div class="asset-title">💻 IT Assets</div>
-                        <div class="asset-count">${assets} Assets</div>
-                    </div>
-                    <div class="asset-card">
-                        <div class="asset-title">⚡ Power Mgmt</div>
-                        <div class="asset-count">${ups} UPS - ${gens} Gen</div>
-                    </div>
-                    <div class="asset-card">
-                        <div class="asset-title">❄️ Cooling</div>
-                        <div class="asset-count">${cracs} CRAC Units</div>
-                    </div>
-                </div>
-                
                 <div style="background: #0f1535; border-radius: 12px; padding: 20px;">
-                    <h3 style="color: white; margin-bottom: 15px;">Quick Access</h3>
-                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                        <button class="btn btn-primary" onclick="loadWorkspace('💻 IT Asset Management')">📦 IT Assets</button>
-                        <button class="btn btn-secondary" onclick="loadWorkspace('📊 Infrastructure Management')">🏗️ Infrastructure</button>
-                        <button class="btn btn-primary" style="background: #e74c3c;" onclick="loadWorkspace('⚡ Power Management')">⚡ Power</button>
-                        <button class="btn btn-secondary" onclick="window.location.href='/app/it-asset/new'">➕ New Asset</button>
-                    </div>
+                    <h3 style="color: white; margin-bottom: 15px;">Quick Actions</h3>
+                    <button class="btn btn-primary" onclick="loadListView('IT Asset')">View Assets</button>
+                    <button class="btn btn-secondary" onclick="loadListView('Rack')">View Racks</button>
+                    <button class="btn btn-danger" onclick="showNewForm('Work Order')">New Work Order</button>
                 </div>
             `;
-            
             document.getElementById('content-area').innerHTML = html;
             document.getElementById('page-title').innerText = 'Executive Dashboard';
         }
         
-        // Load Frappe Workspace in Iframe
-        function loadWorkspace(workspaceName) {
-            currentType = 'workspace';
-            currentWorkspace = workspaceName;
+        async function loadListView(doctype) {
+            currentDoctype = doctype;
+            document.getElementById('content-area').innerHTML = '<div class="loading"><i class="fas fa-spinner fa-pulse"></i> Loading...</div>';
             
-            // Convert workspace name to URL format
-            let urlName = workspaceName.toLowerCase()
-                .replace(/[️📊💻⚡❄️🔒🛠️👥📋]/g, '')
-                .replace(/ /g, '-')
-                .replace(/--/g, '-');
-            
-            const workspaceUrl = `/app/${urlName}`;
-            
-            const html = `
-                <div style="height: 100%;">
-                    <div style="background: #0f1535; padding: 12px 20px; margin-bottom: 16px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
-                        <div>
-                            <h3 style="color: white; margin: 0;">${workspaceName}</h3>
-                            <p style="color: #8892b0; font-size: 12px; margin: 5px 0 0;">Frappe Workspace</p>
-                        </div>
-                        <div>
-                            <button onclick="document.querySelector('iframe').contentWindow.location.reload()" style="background: #3498db; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; margin-right: 8px;">
-                                <i class="fas fa-sync-alt"></i> Refresh
-                            </button>
-                            <button onclick="window.open('${workspaceUrl}', '_blank')" style="background: #2ecc71; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">
-                                <i class="fas fa-external-link-alt"></i> Full Screen
-                            </button>
-                        </div>
+            try {
+                const res = await new Promise((resolve) => {
+                    frappe.call({
+                        method: "frappe.client.get_list",
+                        args: { doctype: doctype, fields: ['name', 'status'], limit: 50 },
+                        callback: (r) => resolve(r.message || [])
+                    });
+                });
+                
+                let rows = '';
+                res.forEach(item => {
+                    rows += `<tr onclick="loadFormView('${doctype}', '${item.name}')" style="cursor: pointer;">
+                        <td>${item.name}</td>
+                        <td>${item.status || 'Active'}</td>
+                        <td><button class="btn btn-primary" style="padding: 4px 12px;" onclick="event.stopPropagation();loadFormView('${doctype}', '${item.name}')">View</button></td>
+                    </tr>`;
+                });
+                
+                const html = `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <h2 style="color: white;">${doctype}s</h2>
+                        <button class="btn btn-primary" onclick="showNewForm('${doctype}')">+ New ${doctype}</button>
                     </div>
-                    <div class="iframe-container">
-                        <iframe src="${workspaceUrl}" title="${workspaceName}"></iframe>
-                    </div>
-                </div>
-            `;
-            
-            document.getElementById('content-area').innerHTML = html;
-            document.getElementById('page-title').innerText = workspaceName;
+                    <table class="data-table">
+                        <thead><tr><th>Name</th><th>Status</th><th>Action</th></tr></thead>
+                        <tbody>${rows || '<tr><td colspan="3" style="text-align: center;">No records found</td></tr>'}</tbody>
+                    </table>
+                `;
+                document.getElementById('content-area').innerHTML = html;
+                document.getElementById('page-title').innerText = `${doctype}s`;
+            } catch(e) {
+                document.getElementById('content-area').innerHTML = '<div class="loading">Error loading data</div>';
+            }
         }
         
-        // Navigation handler
-        function navigateTo(type, workspaceName = null) {
-            if (type === 'dashboard') {
-                renderDashboard();
-            } else if (type === 'workspace' && workspaceName) {
-                loadWorkspace(workspaceName);
-            }
+        async function loadFormView(doctype, docname) {
+            document.getElementById('content-area').innerHTML = '<div class="loading"><i class="fas fa-spinner fa-pulse"></i> Loading...</div>';
             
-            // Update active state in sidebar
-            document.querySelectorAll('.nav-item').forEach(item => {
-                item.classList.remove('active');
+            try {
+                const doc = await new Promise((resolve) => {
+                    frappe.call({
+                        method: "frappe.client.get",
+                        args: { doctype: doctype, name: docname },
+                        callback: (r) => resolve(r.message || {})
+                    });
+                });
+                
+                let fieldsHtml = '';
+                for (let [key, value] of Object.entries(doc)) {
+                    if (key.startsWith('_') || key === 'name' || typeof value === 'object') continue;
+                    fieldsHtml += `
+                        <div class="form-group">
+                            <label>${key.replace(/_/g, ' ').toUpperCase()}</label>
+                            <input type="text" value="${value || ''}" data-field="${key}" id="field_${key}">
+                        </div>
+                    `;
+                }
+                
+                const html = `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <h2 style="color: white;">${doc.name}</h2>
+                        <div>
+                            <button class="btn btn-secondary" onclick="loadListView('${doctype}')">Back</button>
+                            <button class="btn btn-primary" onclick="saveForm('${doctype}', '${docname}')">Save</button>
+                        </div>
+                    </div>
+                    <div style="background: #0f1535; border-radius: 12px; padding: 24px;">
+                        ${fieldsHtml}
+                    </div>
+                `;
+                document.getElementById('content-area').innerHTML = html;
+                document.getElementById('page-title').innerText = docname;
+            } catch(e) {
+                document.getElementById('content-area').innerHTML = '<div class="loading">Error loading form</div>';
+            }
+        }
+        
+        function showNewForm(doctype) {
+            window.location.href = `/app/${doctype.toLowerCase().replace(/ /g, '-')}/new`;
+        }
+        
+        function saveForm(doctype, docname) {
+            // Collect updated fields
+            const updatedDoc = { name: docname, doctype: doctype };
+            document.querySelectorAll('[data-field]').forEach(input => {
+                updatedDoc[input.dataset.field] = input.value;
             });
             
-            if (type === 'dashboard') {
-                document.querySelector('.nav-item[data-type="dashboard"]').classList.add('active');
-            } else if (type === 'workspace' && workspaceName) {
-                const activeItem = document.querySelector(`.nav-item[data-workspace="${workspaceName}"]`);
+            frappe.call({
+                method: "frappe.client.save",
+                args: { doc: updatedDoc },
+                callback: (r) => {
+                    if (r.message) {
+                        frappe.msgprint('Saved successfully');
+                        loadFormView(doctype, docname);
+                    }
+                }
+            });
+        }
+        
+        function navigateTo(view, doctype = null) {
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            if (view === 'dashboard') {
+                renderDashboard();
+                document.querySelector('.nav-item[data-view="dashboard"]').classList.add('active');
+            } else if (view === 'list' && doctype) {
+                loadListView(doctype);
+                const activeItem = document.querySelector(`.nav-item[data-doctype="${doctype}"]`);
                 if (activeItem) activeItem.classList.add('active');
             }
         }
         
-        // Get user info
-        function getUserInfo() {
-            if (typeof frappe !== 'undefined' && frappe.session && frappe.session.user) {
-                document.getElementById('user-name').innerText = frappe.session.user;
-            }
-        }
-        
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log("DCIM PLUS Loading...");
-            
+        document.addEventListener('DOMContentLoaded', () => {
             if (typeof frappe !== 'undefined') {
-                frappe.ready(function() {
-                    console.log("Frappe ready");
-                    getUserInfo();
+                frappe.ready(() => {
+                    document.getElementById('user-name').innerText = frappe.session.user || 'Admin';
                     renderDashboard();
                 });
             } else {
-                setTimeout(() => {
-                    getUserInfo();
-                    renderDashboard();
-                }, 500);
+                setTimeout(renderDashboard, 500);
             }
             
-            // Setup navigation
             document.querySelectorAll('.nav-item').forEach(item => {
                 item.addEventListener('click', () => {
-                    const type = item.dataset.type;
-                    const workspace = item.dataset.workspace;
-                    navigateTo(type, workspace);
+                    const view = item.dataset.view;
+                    const doctype = item.dataset.doctype;
+                    navigateTo(view, doctype);
                 });
             });
         });
         
-        // Expose functions globally
-        window.loadWorkspace = loadWorkspace;
-        window.renderDashboard = renderDashboard;
+        window.loadListView = loadListView;
+        window.loadFormView = loadFormView;
+        window.showNewForm = showNewForm;
+        window.saveForm = saveForm;
     </script>
 </body>
 </html>

@@ -1,0 +1,363 @@
+/* ============================================
+   DCIM PLUS - COMPLETE PROFESSIONAL THEME
+   Fixed: Sidebar below navbar, No gap, Wider main, Footer restored
+   ============================================ */
+
+/* Base Background */
+body {
+    background: #05050a !important;
+}
+
+/* ==================== SIDEBAR - BELOW NAVBAR ==================== */
+.layout-sidebar,
+.sidebar,
+.desk-sidebar {
+    width: 260px !important;
+   /* background: #0f1629 !important;*/
+      border-right: 1px solid #1e2937 !important;
+   /* border-right: 1px solid #ffd700 !important;*/
+    position: fixed !important;
+    left: 0 !important;
+    top: 50px !important;
+    bottom: 0 !important;
+    height: calc(100vh -80px) !important;
+    z-index: 900 !important;
+    overflow-y: auto !important;
+    margin: 0 !important;
+    padding-top: 16px !important;
+    bottom: 0px !important;  /* Changed from 0 to 60px */
+    height: calc(100vh - 110px) !important;  /* 50px navbar + 60px footer gap */
+}
+
+/* Sidebar Items */
+.sidebar-item {
+    color: #94a3b8 !important;
+    padding: 10px 20px !important;
+    margin: 4px 12px !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    font-size: 14px !important;
+    transition: all 0.2s ease !important;
+}
+
+.sidebar-item:hover {
+    background: rgba(255, 215, 0, 0.12) !important;
+    color: #ffd700 !important;
+}
+
+.sidebar-item.active {
+    background: rgba(255, 215, 0, 0.2) !important;
+    color: #ffd700 !important;
+    border-left: 3px solid #ffd700 !important;
+}
+
+/* ==================== MAIN CONTENT - NO GAP, WIDER ==================== */
+.layout-main-content,
+.main-content {
+    margin-left:290px !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+}
+
+.layout-main-section-wrapper {
+    margin-left: 0 !important;
+    padding: 20px 24px !important;
+    width: 100% !important;
+}
+
+/* Remove any gaps between sidebar and content */
+.layout-main-section {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+/* ==================== TOP NAVBAR ==================== */
+.navbar {
+    background: linear-gradient(135deg, #e67e22, #d35400) !important;
+    border-bottom: none !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    height: 50px !important;
+}
+
+.navbar .navbar-brand,
+.navbar .navbar-brand:hover {
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.navbar .navbar-nav > li > a {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Hide unwanted menu items */
+.navbar .dropdown-help,
+.navbar a[href*="help"],
+.dropdown-menu a[href*="help"],
+.dropdown-menu a[href*="apps"],
+.dropdown-menu a[href*="website"],
+.help-dropdown {
+    display: none !important;
+}
+
+/* ==================== FOOTER - RESTORED ==================== */
+footer,
+.page-footer,
+.web-footer {
+   /* background: #0f1629 !important;*/
+    border-top: 1px solid #ffd700 !important;
+    padding: 16px 20px !important;
+    text-align: center !important;
+    display: block !important;
+    position: relative !important;
+    margin-top: 30px !important;
+    width: 100% !important;
+}
+
+footer::before,
+.page-footer::before {
+    content: "© 2026 DCIM PLUS - Data Center Infrastructure Management | Addis Ababa, Ethiopia" !important;
+    display: block !important;
+    color: #ffd700 !important;
+    font-size: 12px !important;
+}
+
+footer .text-muted,
+.page-footer .text-muted {
+    display: none !important;
+}
+
+/* ==================== CARDS ==================== */
+.card,
+.frappe-card {
+    background: #0f1629 !important;
+    border: 1px solid rgba(255, 215, 0, 0.15) !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+}
+
+.card:hover,
+.frappe-card:hover {
+    transform: translateY(-2px) !important;
+    border-color: #ffd700 !important;
+}
+
+.card-header {
+    background: rgba(255, 215, 0, 0.08) !important;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.15) !important;
+    color: #ffd700 !important;
+}
+
+/* ==================== FORM FIELDS ==================== */
+input,
+select,
+textarea,
+
+}
+.form-control {
+   /* background: #0f1629 !important;*/
+    border: 1px solid #2a2a3e !important;
+    color: #ffffff !important;
+    border-radius: 6px !important;
+    padding: 8px 12px !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+.form-control:focus {
+    border-color: #ffd700 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.1) !important;
+}
+
+/* ==================== BUTTONS ==================== */
+.btn-primary {
+    background: linear-gradient(135deg, #ffd700, #ffaa00) !important;
+    border: none !important;
+    color: #05050a !important;
+    font-weight: 700 !important;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #ffaa00, #ff8800) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* ==================== TABLES ==================== */
+.table > thead > tr > th {
+    background: #0f1629 !important;
+    color: #ffd700 !important;
+    border-bottom: 1px solid #ffd700 !important;
+}
+
+.table > tbody > tr > td {
+    color: #a0a0b0 !important;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.08) !important;
+}
+
+.table > tbody > tr:hover > td {
+    background: rgba(255, 215, 0, 0.03) !important;
+}
+
+/* ==================== SCROLLBAR ==================== */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #05050a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffd700;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ffaa00;
+}
+
+/* ==================== TEXT COLORS ==================== */
+h1, h2, h3, h4, .title, .heading {
+    color: #ffd700 !important;
+}
+
+.text-muted {
+    color: #6a6a80 !important;
+}
+
+/* ============================================
+   LIGHT MODE - COMPLETE FIX
+   ============================================ */
+body.light {
+    background: #f0f2f5 !important;
+}
+
+/* Light mode sidebar */
+body.light .layout-sidebar,
+body.light .sidebar {
+    background: #ffffff !important;
+    border-right: 1px solid #e2e8f0 !important;
+}
+
+body.light .sidebar-item {
+    color: #475569 !important;
+}
+
+body.light .sidebar-item.active {
+    background: rgba(255, 215, 0, 0.15) !important;
+    color: #d35400 !important;
+    border-left: 3px solid #d35400 !important;
+}
+
+body.light .sidebar-item:hover {
+    background: rgba(255, 215, 0, 0.08) !important;
+    color: #d35400 !important;
+}
+
+/* Light mode cards */
+body.light .card,
+body.light .frappe-card {
+    background: #ffffff !important;
+    border: 1px solid #e1e8f0 !important;
+}
+
+body.light .card-header {
+    background: #f8f9fa !important;
+    color: #d35400 !important;
+}
+
+/* Light mode form fields - WHITE */
+body.light input,
+body.light select,
+body.light textarea,
+body.light .form-control {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #1a1a2e !important;
+}
+
+body.light input:focus,
+body.light select:focus,
+body.light textarea:focus,
+body.light .form-control:focus {
+    border-color: #d35400 !important;
+    box-shadow: 0 0 0 2px rgba(211, 84, 0, 0.1) !important;
+}
+
+/* Light mode list view - WHITE */
+body.light .list-row {
+    background: #ffffff !important;
+}
+
+body.light .list-row .list-subject {
+    color: #1a1a2e !important;
+}
+
+body.light .list-row:hover {
+    background: #f8f9fa !important;
+}
+
+/* Light mode tables */
+body.light .table > thead > tr > th {
+    background: #f8f9fa !important;
+    color: #d35400 !important;
+    border-bottom: 1px solid #e1e8f0 !important;
+}
+
+body.light .table > tbody > tr > td {
+    color: #4a5568 !important;
+    border-bottom: 1px solid #e1e8f0 !important;
+}
+
+/* Light mode text */
+body.light h1, body.light h2, body.light h3, body.light .title {
+    color: #1a1a2e !important;
+}
+
+body.light .text-muted {
+    color: #718096 !important;
+}
+
+/* Light mode footer */
+body.light footer,
+body.light .page-footer {
+    background: #ffffff !important;
+    border-top: 1px solid #e1e8f0 !important;
+}
+
+body.light footer::before,
+body.light .page-footer::before {
+    color: #718096 !important;
+}
+
+/* Light mode dropdowns */
+body.light .dropdown-menu {
+    background: #ffffff !important;
+    border: 1px solid #e1e8f0 !important;
+}
+
+body.light .dropdown-menu > li > a {
+    color: #4a5568 !important;
+}
+
+body.light .dropdown-menu > li > a:hover {
+    background: rgba(255, 215, 0, 0.1) !important;
+    color: #d35400 !important;
+}
+
+/* Light mode modals */
+body.light .modal-content {
+    background: #ffffff !important;
+}
+
+/* Light mode form sections */
+body.light .form-section {
+    background: #ffffff !important;
+    border: 1px solid #e1e8f0 !important;
+}
